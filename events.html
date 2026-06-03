@@ -13,23 +13,31 @@
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  <!-- NOTE: Events page is NOT in the navbar links intentionally (hidden page) -->
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <!-- LOGO IMAGE — replace URL to change the header logo -->
+        <!-- LOGO — replace src URL to change header logo -->
         <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" alt="Atlas Virtual Logo" />
         <span class="nav-logo-text">Atlas Virtual</span>
       </a>
       <div class="nav-links">
-        <!-- Events is NOT listed here — this page is hidden from nav -->
         <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="about.html">About Us</a>
+            <a href="staff.html">Staff</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="fleet.html">Fleet</a>
+            <a href="routes.html">Routes</a>
+            <a href="ranks.html">Ranks</a>
+          </div>
+        </div>
         <a href="training.html">Training</a>
-        <a href="ranks.html">Ranks</a>
         <a href="apply.html" class="nav-apply">Apply Now</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -38,15 +46,25 @@
     </div>
   </nav>
 
-  <!-- Mobile Nav — Events NOT listed here either -->
+  <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="staff.html">Staff</a>
-    <a href="fleet.html">Fleet</a>
-    <a href="routes.html">Routes</a>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu">
+        <a href="about.html">About Us</a>
+        <a href="staff.html">Staff</a>
+      </div>
+    </div>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu">
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Routes</a>
+        <a href="ranks.html">Ranks</a>
+      </div>
+    </div>
     <a href="training.html">Training</a>
-    <a href="ranks.html">Ranks</a>
     <a href="apply.html" class="mob-apply">Apply Now</a>
   </div>
 
@@ -59,7 +77,7 @@
         <!-- EVENT PAGE MAIN HEADING — change text below to rename the page title -->
         <h1 class="section-title">Events &amp; News</h1>
         <div class="section-rule"></div>
-        <p class="section-desc">Stay up to date with Atlas Virtual events, and the latest VA news.</p>
+        <p class="section-desc">Stay up to date with Atlas Virtual events, competitions, and the latest VA news.</p>
       </div>
     </div>
 
@@ -98,15 +116,15 @@
 
           <div class="event-body">
             <!-- EVENT TAG — small label above title e.g. "Live Event", "Competition", "Fly-In" -->
-            <span class="event-tag">Event</span><!-- ← change label here -->
+            <span class="event-tag">Live Event</span><!-- ← change label here -->
 
             <!-- EVENT NAME — main heading for this event -->
-            <div class="event-title">Atlas Virtual Event</div><!-- ← change event name here -->
+            <div class="event-title">Atlas Virtual Inaugural Event</div><!-- ← change event name here -->
 
             <!-- EVENT DESCRIPTION — write full event details below -->
             <p class="event-desc">
               <!-- ↓ Replace this placeholder text with actual event description -->
-              Event details and participation information will be announced here soon. Stay tuned for upcoming community fly-ins, group operations, and special Atlas Virtual events.
+              Join Atlas Virtual for our inaugural community fly-in event. Pilots across all hubs are invited to participate in a coordinated global operation showcasing the full reach of our cargo and charter network. Fly any route, represent your hub, and be part of history as Atlas Virtual takes to the skies together for the first time.
               <!-- Add dates, times, rules, aircraft requirements etc. here -->
             </p>
 
@@ -148,7 +166,7 @@
           <!-- Recommended: 16:9 ratio image from Cloudinary -->
           <img
             class="news-banner"
-            src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779539726/Picsart_26-05-23_18-02-46-375_kqytic.jpg"
+            src="https://res.cloudinary.com/dsfwafyc2/image/upload/q_auto/f_auto/v1779272477/IMG_20260520_154728_dsffd8.png"
             alt="Atlas Virtual News Banner"
             loading="lazy"
           />
@@ -158,20 +176,18 @@
             <span class="news-tag">Announcement</span><!-- ← change label here -->
 
             <!-- NEWS HEADLINE — main title for this news item -->
-            <div class="news-title">New Officail Instagram Account </div><!-- ← change headline here -->
+            <div class="news-title">Atlas Virtual — Now Live</div><!-- ← change headline here -->
 
             <!-- NEWS DESCRIPTION — write full news content below -->
             <p class="news-desc">
               <!-- ↓ Replace this placeholder text with actual news content -->
-              Stay connected with Atlas Virtual on Instagram ✈️
-
-Follow our official Instagram page for the latest updates, route releases, fleet showcases, event announcements, community highlights, and behind-the-scenes content from Atlas Virtual. Join us as we continue building a professional and immersive virtual aviation experience.
+              Atlas Virtual is officially operational. Our global heavy cargo logistics and elite passenger charter network is now live across 20+ hubs spanning 6 continents. Pilots are now actively flying routes, and recruitment is open for qualified Infinite Flight community members who meet our standards.
               <!-- Add more details, updates, announcements here -->
             </p>
 
             <!-- NEWS LINK BUTTON — replace href URL below to change where it links -->
             <!-- To hide this button: add style="display:none;" -->
-            <a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank" class="btn-news-link">Link  →</a>
+            <a href="https://sites.google.com/view/atlas-virtual-application/home" target="_blank" class="btn-news-link">Read More →</a>
           </div>
         </div>
 
@@ -179,7 +195,6 @@ Follow our official Instagram page for the latest updates, route releases, fleet
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <!-- NOTE: Events page link is NOT in the footer nav (hidden page) -->
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
@@ -201,7 +216,6 @@ Follow our official Instagram page for the latest updates, route releases, fleet
             <li><a href="training.html">Training</a></li>
             <li><a href="ranks.html">Ranks</a></li>
             <li><a href="apply.html">Apply Now</a></li>
-            <!-- Events is intentionally NOT listed here -->
           </ul>
         </div>
         <div>
@@ -210,35 +224,37 @@ Follow our official Instagram page for the latest updates, route releases, fleet
             <!-- IFC PROFILE LINKS — update href for each person -->
             <li><a href="https://community.infiniteflight.com/u/ravikumar" target="_blank">CEO — ravikumar</a></li>
             <li><a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank">COO — priyanshu_pandey</a></li>
-            <!-- CFO IFC LINK — replace # with actual IFC profile URL when available -->
+            <!-- CFO IFC LINK — replace # with actual IFC profile URL -->
             <li><a href="#" target="_blank">CFO — Recruiting</a></li>
-            <li style="color: var(--text-muted);">HR — Recruiting</li>
+            <li style="color:var(--text-muted);">HR — Recruiting</li>
           </ul>
           <br/>
           <div class="footer-col-title">Community</div>
           <ul class="footer-links">
             <!-- IFC FORUM LINK — update if URL changes -->
-            <li><a href="https://community.infiniteflight.com/u/atlas_virtual" target="_blank">IFC Forum</a></li>
+            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
+            <!-- IFC THREAD LINK — replace # with actual thread URL when available -->
+            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
             <li><a href="apply.html">Apply to Join</a></li>
           </ul>
           <br/>
           <div class="footer-col-title">Social Media</div>
           <ul class="footer-links">
             <!-- SOCIAL LINKS — add your URLs in href="" below -->
-            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li><!-- href: https://instagram.com/youraccount -->
-            <li><a href="#" target="_blank">X (Twitter)</a></li><!-- href: https://x.com/youraccount -->
-            <li><a href="#" target="_blank">Facebook</a></li><!-- href: https://facebook.com/yourpage -->
-            <li><a href="#" target="_blank">VK</a></li><!-- href: https://vk.com/yourprofile -->
+            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">X (Twitter)</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">VK</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-inner" style="padding-top: 0; border-top: none;">
-        <div class="footer-bottom" style="border-top: 1px solid var(--navy-border); padding-top: 20px; width: 100%; grid-column: 1/-1;">
+      <div class="footer-inner" style="padding-top:0;border-top:none;">
+        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
           <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
-          <span class="footer-disclaimer">Atlas Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
+          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
         </div>
       </div>
-      <!-- PROUDLY LINE — edit text below if needed -->
+      <!-- PROUDLY LINE — edit text if needed -->
       <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
 

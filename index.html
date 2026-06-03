@@ -14,17 +14,28 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
+        <!-- LOGO — replace src URL to change header logo -->
         <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" alt="Atlas Virtual Logo" />
         <span class="nav-logo-text">Atlas Virtual</span>
       </a>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="about.html">About Us</a>
+            <a href="staff.html">Staff</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="fleet.html">Fleet</a>
+            <a href="routes.html">Routes</a>
+            <a href="ranks.html">Ranks</a>
+          </div>
+        </div>
         <a href="training.html">Training</a>
-        <a href="ranks.html">Ranks</a>
         <a href="apply.html" class="nav-apply">Apply Now</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -35,13 +46,23 @@
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="staff.html">Staff</a>
-    <a href="fleet.html">Fleet</a>
-    <a href="routes.html">Routes</a>
+    <a href="index.html" class="active">Home</a>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu">
+        <a href="about.html">About Us</a>
+        <a href="staff.html">Staff</a>
+      </div>
+    </div>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu">
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Routes</a>
+        <a href="ranks.html">Ranks</a>
+      </div>
+    </div>
     <a href="training.html">Training</a>
-    <a href="ranks.html">Ranks</a>
     <a href="apply.html" class="mob-apply">Apply Now</a>
   </div>
 
@@ -119,36 +140,37 @@
         <h2 class="section-title" style="text-align:center;">VA Statistics</h2>
         <div class="section-rule" style="margin: 0 auto 40px;"></div>
         <!-- VA STATS CARDS — always stays 3-column even on mobile -->
+        <!-- Cards are clickable: Pilots→pilots.html, Routes→routes.html, Codeshares→codeshare.html -->
         <div class="va-stats-cards va-stats-cards--fixed">
 
-          <!-- STAT 1: Update number below -->
-          <div class="va-stat-card">
+          <!-- STAT 1: Update number below. Clicking takes user to Pilot Directory -->
+          <a href="pilots.html" class="va-stat-card va-stat-card--link">
             <div class="va-stat-icon">✈️</div>
-            <div class="va-stat-num">5</div><!-- ← PILOTS count -->
+            <div class="va-stat-num">7</div><!-- ← PILOTS count -->
             <div class="va-stat-name">Pilots</div>
-            <div class="va-stat-desc">Active Members</div>
-          </div>
+            <div class="va-stat-desc">Click Here</div>
+          </a>
 
-          <!-- STAT 2: Update number below -->
-          <div class="va-stat-card">
+          <!-- STAT 2: Update number below. Clicking takes user to Routes page -->
+          <a href="routes.html" class="va-stat-card va-stat-card--link">
             <div class="va-stat-icon">🗺️</div>
-            <div class="va-stat-num">100+</div><!-- ← ROUTES count -->
+            <div class="va-stat-num">330+</div><!-- ← ROUTES count -->
             <div class="va-stat-name">Routes</div>
-            <div class="va-stat-desc">Global Routes</div>
-          </div>
+            <div class="va-stat-desc">Click Here</div>
+          </a>
 
-          <!-- STAT 3: Update number below -->
-          <div class="va-stat-card">
+          <!-- STAT 3: Update number below. Clicking takes user to Codeshare Partners -->
+          <a href="codeshare.html" class="va-stat-card va-stat-card--link">
             <div class="va-stat-icon">🤝</div>
             <div class="va-stat-num">3</div><!-- ← CODESHARES count -->
             <div class="va-stat-name">Codeshares</div>
-            <div class="va-stat-desc">Partner Airlines</div>
-          </div>
+            <div class="va-stat-desc">Click Here</div>
+          </a>
 
         </div>
         <div style="text-align:center; margin-top: 24px; padding-bottom: 80px;">
           <!-- UPDATE THE MONTH/YEAR below when you refresh stats -->
-          <span class="updated-note">🗓️ &nbsp;Statistics are updated monthly by our operations team &nbsp;|&nbsp; Last updated: May 2026</span>
+          <span class="updated-note">🗓️ &nbsp;Statistics are updated monthly by our operations team &nbsp;|&nbsp; Last updated: June 2026</span>
         </div>
       </div>
     </section>
@@ -183,7 +205,7 @@
             </div>
           </div>
           <div class="mission-image">
-            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779602854/Picsart_26-05-24_11-36-50-294_wpwgmx.jpg" alt="Atlas Virtual Operations" loading="lazy" />
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/q_auto/f_auto/v1779723709/Screenshot_20260524_201521_com.fds.infiniteflight_atzh1x.jpg" alt="Atlas Virtual Operations" loading="lazy" />
           </div>
         </div>
 
@@ -211,6 +233,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <div class="footer-logo">
+            <!-- FOOTER LOGO — replace URL to change footer logo -->
             <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" alt="Atlas Virtual" />
             <span class="footer-logo-text">Atlas Virtual</span>
           </div>
@@ -235,34 +258,38 @@
             <!-- IFC PROFILE LINKS — update href for each person -->
             <li><a href="https://community.infiniteflight.com/u/ravikumar" target="_blank">CEO — ravikumar</a></li>
             <li><a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank">COO — priyanshu_pandey</a></li>
-            <!-- CFO IFC LINK — replace # with actual IFC profile URL when available -->
+            <!-- CFO IFC LINK — replace # with actual IFC profile URL -->
             <li><a href="#" target="_blank">CFO — Recruiting</a></li>
-            <li style="color: var(--text-muted);">HR — Recruiting</li>
+            <li style="color:var(--text-muted);">HR — Recruiting</li>
           </ul>
           <br/>
           <div class="footer-col-title">Community</div>
           <ul class="footer-links">
+            <!-- IFC FORUM LINK — update if URL changes -->
             <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
+            <!-- IFC THREAD LINK — replace # with actual thread URL when available -->
+            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
             <li><a href="apply.html">Apply to Join</a></li>
           </ul>
           <br/>
           <div class="footer-col-title">Social Media</div>
           <ul class="footer-links">
             <!-- SOCIAL LINKS — add your URLs in href="" below -->
-            <li><a href="#" target="_blank">Instagram</a></li><!-- href: https://instagram.com/youraccount -->
-            <li><a href="#" target="_blank">X (Twitter)</a></li><!-- href: https://x.com/youraccount -->
-            <li><a href="#" target="_blank">Facebook</a></li><!-- href: https://facebook.com/yourpage -->
-            <li><a href="#" target="_blank">VK</a></li><!-- href: https://vk.com/yourprofile -->
+            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">X (Twitter)</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">VK</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-inner" style="padding-top: 0; border-top: none;">
-        <div class="footer-bottom" style="border-top: 1px solid var(--navy-border); padding-top: 20px; width: 100%; grid-column: 1/-1;">
+      <div class="footer-inner" style="padding-top:0;border-top:none;">
+        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
           <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
           <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
-        <!-- PROUDLY LINE — edit text below if needed -->
-      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
+        </div>
       </div>
+      <!-- PROUDLY LINE — edit text if needed -->
+      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
 
   </div><!-- end page-wrapper -->

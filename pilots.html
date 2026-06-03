@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilot Directory — Atlas Virtual</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR (no Events/Pilots in nav — hidden page) ===== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" alt="Atlas Virtual Logo" />
+        <span class="nav-logo-text">Atlas Virtual</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="about.html">About Us</a>
+            <a href="staff.html">Staff</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="fleet.html">Fleet</a>
+            <a href="routes.html">Routes</a>
+            <a href="ranks.html">Ranks</a>
+          </div>
+        </div>
+        <a href="training.html">Training</a>
+        <a href="apply.html" class="nav-apply">Apply Now</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu"><a href="about.html">About Us</a><a href="staff.html">Staff</a></div>
+    </div>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu"><a href="fleet.html">Fleet</a><a href="routes.html">Routes</a><a href="ranks.html">Ranks</a></div>
+    </div>
+    <a href="training.html">Training</a>
+    <a href="apply.html" class="mob-apply">Apply Now</a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="section-eyebrow">Our Team</p>
+        <h1 class="section-title">Pilot Directory</h1>
+        <div class="section-rule"></div>
+        <p class="section-desc">All active Atlas Virtual pilots. Search by name, ID, or IFC username.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section-inner">
+
+        <!-- Search bar -->
+        <div class="pilot-search-bar">
+          <input class="pilot-search-input" id="pilotSearch" type="text" placeholder="Search by name, ID, or IFC username…" oninput="filterPilots()" />
+          <span class="pilot-count" id="pilotCount"></span>
+        </div>
+
+        <!-- Pilot cards rendered here by JS -->
+        <div class="pilot-grid" id="pilotGrid"></div>
+
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" alt="Atlas Virtual" />
+            <span class="footer-logo-text">Atlas Virtual</span>
+          </div>
+          <p class="footer-tagline">Global heavy cargo logistics and elite passenger charter operations in Infinite Flight. Discipline. Precision. Professionalism.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
+            <li><a href="routes.html">Routes</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li><a href="ranks.html">Ranks</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Community</div>
+          <ul class="footer-links">
+            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
+            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
+            <li><a href="apply.html">Apply to Join</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-inner" style="padding-top:0;border-top:none;">
+        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
+          <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
+          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
+        </div>
+      </div>
+      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
+    </footer>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+  /*
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  PILOT DIRECTORY DATA — ADD / EDIT / REMOVE PILOTS HERE     ║
+  ║                                                              ║
+  ║  Each pilot entry has:                                       ║
+  ║    id      → Pilot ID e.g. "001AV"                          ║
+  ║    name    → Display name                                    ║
+  ║    ifc     → IFC username (without @)                       ║
+  ║    pfp     → Cloudinary or any image URL for profile pic     ║
+  ║    link    → Full IFC profile URL                           ║
+  ║                                                              ║
+  ║  TO ADD a pilot: copy one { } block, paste, fill details    ║
+  ║  TO REMOVE: delete that { } block                           ║
+  ║  TO EDIT: just change the value inside quotes               ║
+  ║                                                              ║
+  ║  Supports up to 1000+ pilots — just keep adding below       ║
+  ╚══════════════════════════════════════════════════════════════╝
+  */
+  const PILOTS = [
+
+    /* ── ADD PILOTS BELOW THIS LINE ──
+       Copy one block, paste below, fill in the 5 fields.
+       Each field explained:
+         id    → Pilot's unique ID. Format: 001AV, 002AV, 003AV ...
+         name  → Pilot's display name (real name or callsign)
+         ifc   → IFC username WITHOUT the @ symbol
+         pfp   → Direct image URL (Cloudinary recommended). Used as profile picture.
+                 If image fails to load, ATV logo shows automatically.
+         link  → Full IFC profile URL e.g. https://community.infiniteflight.com/u/username
+    ── */
+
+    /* SAMPLE PILOT 1 — CEO */
+    {
+      id: "001AV",                        /* ← Pilot ID */
+      name: "Ravikumar",                  /* ← Pilot name */
+      ifc: "ravikumar",                   /* ← IFC username */
+      /* PFP URL — replace with pilot's profile picture Cloudinary URL */
+      pfp: "https://res.cloudinary.com/dsfwafyc2/image/upload/q_auto/f_auto/v1780495041/37f3e52b91642d95767657ab3ace6386_1_dba2wp.jpg",
+      /* IFC PROFILE LINK — replace with this pilot's IFC profile URL */
+      link: "https://community.infiniteflight.com/u/ravikumar"
+    },
+
+    /* SAMPLE PILOT 2 — COO */
+    {
+      id: "003AV",                        /* ← Pilot ID */
+      name: "Priyanshu Pandey",           /* ← Pilot name */
+      ifc: "priyanshu_pandey",            /* ← IFC username */
+      /* PFP URL — replace with pilot's profile picture Cloudinary URL */
+      pfp: "https://res.cloudinary.com/dsfwafyc2/image/upload/q_auto/f_auto/v1780495041/e414503cca00bc144f2055e48255609e_ch0gxp.jpg",
+      /* IFC PROFILE LINK */
+      link: "https://community.infiniteflight.com/u/priyanshu_pandey"
+    },
+
+    /* SAMPLE PILOT 3 — template to show the format */
+    {
+      id: "000AV",                        /* ← change to next ID */
+      name: "Final Stage",            /* ← change to pilot's name */
+      ifc: "unknown",           /* ← change to IFC username */
+      /* PFP URL — upload pilot's photo to Cloudinary, paste URL here */
+      pfp: "https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png",
+      /* IFC PROFILE LINK — change username at end of URL */
+      link: "https://community.infiniteflight.com/u/ifc_username_here"
+    },
+{
+    id: "000AV",
+    name: "Final Stage",
+    ifc: "unknown",
+    pfp: "your_cloudinary_link",
+    link: "https://community.infiniteflight.com/u/rox_username"
+},
+{
+    id: "000AV",
+    name: "Final Stage",
+    ifc: "unknown",
+    pfp: "your_cloudinary_link",
+    link: "https://community.infiniteflight.com/u/rox_username"
+},
+    /* ── ADD MORE PILOTS ABOVE THIS LINE ── */
+  ];
+
+  /* ── Render + Filter Logic (do not edit below) ── */
+  function renderPilots(list) {
+    const grid = document.getElementById('pilotGrid');
+    const count = document.getElementById('pilotCount');
+    if (!list.length) {
+      grid.innerHTML = '<div class="pilot-empty">No pilots found matching your search.</div>';
+      count.textContent = '0 pilots';
+      return;
+    }
+    count.textContent = list.length + ' pilot' + (list.length !== 1 ? 's' : '');
+    grid.innerHTML = list.map(p => `
+      <div class="pilot-card">
+        <img class="pilot-pfp" src="${p.pfp}" alt="${p.name}" onerror="this.src='https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png'" />
+        <div class="pilot-id">${p.id}</div>
+        <div class="pilot-name">${p.name}</div>
+        <div class="pilot-ifc">@${p.ifc}</div>
+        <a href="${p.link}" target="_blank" class="pilot-ifc-link">IFC Profile →</a>
+      </div>
+    `).join('');
+  }
+
+  function filterPilots() {
+    const q = document.getElementById('pilotSearch').value.toLowerCase();
+    const filtered = PILOTS.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.id.toLowerCase().includes(q) ||
+      p.ifc.toLowerCase().includes(q)
+    );
+    renderPilots(filtered);
+  }
+
+  renderPilots(PILOTS);
+  </script>
+</body>
+</html>

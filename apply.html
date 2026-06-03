@@ -14,18 +14,29 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
+        <!-- LOGO — replace src URL to change header logo -->
         <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png" alt="Atlas Virtual Logo" />
         <span class="nav-logo-text">Atlas Virtual</span>
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="about.html">About Us</a>
+            <a href="staff.html">Staff</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
+          <div class="nav-dd-menu">
+            <a href="fleet.html">Fleet</a>
+            <a href="routes.html">Routes</a>
+            <a href="ranks.html">Ranks</a>
+          </div>
+        </div>
         <a href="training.html">Training</a>
-        <a href="ranks.html">Ranks</a>
-        <a href="apply.html" class="nav-apply active">Apply Now</a>
+        <a href="apply.html" class="nav-apply">Apply Now</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -36,12 +47,22 @@
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="staff.html">Staff</a>
-    <a href="fleet.html">Fleet</a>
-    <a href="routes.html">Routes</a>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu">
+        <a href="about.html">About Us</a>
+        <a href="staff.html">Staff</a>
+      </div>
+    </div>
+    <div class="mob-dd">
+      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
+      <div class="mob-dd-menu">
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Routes</a>
+        <a href="ranks.html">Ranks</a>
+      </div>
+    </div>
     <a href="training.html">Training</a>
-    <a href="ranks.html">Ranks</a>
     <a href="apply.html" class="mob-apply">Apply Now</a>
   </div>
 
@@ -146,7 +167,7 @@
             <span class="apply-step-text">Begin training if accepted</span>
           </div>
         </div>
-        <a href="https://forms.gle/CXVfQYm7qe4SSZju6" target="_blank" class="btn-primary" style="display:inline-block; width: 100%; text-align:center; padding: 16px 32px; font-size: 0.9rem;">Apply Now</a>
+        <a href="https://forms.gle/3bFJojk1ApKozJDv5" target="_blank" class="btn-primary" style="display:inline-block; width: 100%; text-align:center; padding: 16px 32px; font-size: 0.9rem;">Apply Now</a>
         <p class="apply-warning">⚠️ &nbsp;You must not be on the IFVARB Blacklist or Watchlist to apply</p>
       </div>
     </div>
