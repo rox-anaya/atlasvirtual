@@ -1,223 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Training Program — Atlas Virtual</title>
-  <meta name="description" content="Atlas Virtual two-stage training program — theoretical exam and practical check-ride." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Pilot Training | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <!-- LOGO — replace src URL to change header logo -->
-        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual Logo" />
-        <span class="nav-logo-text">Atlas Virtual</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="about.html">About Us</a>
-            <a href="staff.html">Staff</a>
-          </div>
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
         </div>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="fleet.html">Fleet</a>
-            <a href="routes.html">Routes</a>
-            <a href="ranks.html">Ranks</a>
-          </div>
-        </div>
-        <a href="training.html" class="active">Training</a>
-        <a href="apply.html" class="nav-apply">Apply Now</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-      </div>
-    </div>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
-        <a href="ranks.html">Ranks</a>
-      </div>
-    </div>
-    <a href="training.html" class="active">Training</a>
-    <a href="apply.html" class="mob-apply">Apply Now</a>
-  </div>
-
-  <div class="page-wrapper">
-
-    <!-- ===== PAGE HERO ===== -->
-    <div class="page-hero">
-      <div class="page-hero-inner">
-        <p class="section-eyebrow">Becoming a Pilot</p>
-        <h1 class="section-title">Training Program</h1>
-        <div class="section-rule"></div>
-        <p class="section-desc">Our structured two-stage certification ensures every Atlas Virtual pilot meets our professional standards before operations.</p>
-      </div>
-    </div>
-
-    <!-- ===== TRAINING CONTENT ===== -->
-    <section class="section">
-      <div class="section-inner">
-
-        <div class="training-notice">
-          All new pilots must complete our two-stage training program before officially joining Atlas Virtual. This process begins after your application is accepted and reviewed by our team.
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <!-- PAGE INTRO -->
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2.5rem;">
+            <h3 class="sub-heading" style="color: var(--color-gold);">Becoming a Pilot</h3>
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem; margin-bottom: 0.5rem;">Training Program</h2>
+            <p style="color: var(--color-gray); font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Our structured two-stage certification ensures every Atlas Virtual pilot meets our professional standards before operations. All new pilots must complete our evaluation process after application review.
+            </p>
         </div>
 
-        <!-- Stages -->
-        <div class="training-stages">
-          <div class="stage-card">
-            <div class="stage-num">01</div>
-            <div class="stage-icon">📖</div>
-            <div class="stage-label">Stage 1</div>
-            <div class="stage-subtitle">Theoretical Entrance Exam</div>
-            <p class="stage-desc">Complete our theoretical knowledge exam covering aviation basics, Infinite Flight procedures and Atlas Virtual standard operating procedures. Pass mark required to advance.</p>
-          </div>
-          <div class="stage-card">
-            <div class="stage-num">02</div>
-            <div class="stage-icon">✈️</div>
-            <div class="stage-label">Stage 2</div>
-            <div class="stage-subtitle">Practical Test and Check-Ride</div>
-            <p class="stage-desc">Demonstrate your flying skills in a supervised check-ride conducted by one of our certified examiners. Evaluated on flight planning, procedures and aircraft handling.</p>
-          </div>
-          <div class="stage-card">
-            <div class="stage-num">✓</div>
-            <div class="stage-icon">🏆</div>
-            <div class="stage-label">Certified</div>
-            <div class="stage-subtitle">Atlas Virtual Airline Family</div>
-            <p class="stage-desc">Upon passing both stages you officially join the Atlas Virtual family. Receive your certification, rank assignment, Pilot Handbook and full access to all VA operations.</p>
-          </div>
-        </div>
-
-        <!-- Steps -->
-        <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px;">The Process</h3>
-        <div class="steps-row">
-          <div class="step-item">
-            <div class="step-box">
-              <div class="step-num">Step 01</div>
-              <div class="step-label">Submit Application</div>
+        <!-- STAGES GRID -->
+        <div class="fleet-grid reveal-on-scroll" style="margin-bottom: 3rem;">
+            
+            <!-- STAGE 1 -->
+            <div class="fleet-card glass-panel">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2rem; font-weight: 900; color: var(--color-gold);">01</span>
+                    <h3 class="aircraft-name" style="margin: 0;">Stage 1: Theory Exam</h3>
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-cargo"><i class="fa-solid fa-book-open"></i> Knowledge Test</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-clipboard-check"></i> Pass Mark Required</span>
+                </div>
+                <p class="aircraft-desc">
+                    Complete our theoretical knowledge exam covering aviation basics, Infinite Flight procedures, and Atlas Virtual standard operating procedures (SOPs).
+                </p>
             </div>
-            <span class="step-arrow">→</span>
-          </div>
-          <div class="step-item">
-            <div class="step-box">
-              <div class="step-num">Step 02</div>
-              <div class="step-label">Team Review via IFC</div>
+
+            <!-- STAGE 2 -->
+            <div class="fleet-card glass-panel">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2rem; font-weight: 900; color: var(--color-gold);">02</span>
+                    <h3 class="aircraft-name" style="margin: 0;">Stage 2: Check-Ride</h3>
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-pax"><i class="fa-solid fa-plane"></i> Practical Test</span>
+                    <span class="fleet-tag tag-mfg"><i class="fa-solid fa-user-shield"></i> Supervised</span>
+                </div>
+                <p class="aircraft-desc">
+                    Demonstrate your flying skills in a supervised check-ride conducted by one of our certified examiners, evaluated on flight planning, procedures, and aircraft handling.
+                </p>
             </div>
-            <span class="step-arrow">→</span>
-          </div>
-          <div class="step-item">
-            <div class="step-box">
-              <div class="step-num">Step 03</div>
-              <div class="step-label">Stage 1 Theory Exam</div>
-            </div>
-            <span class="step-arrow">→</span>
-          </div>
-          <div class="step-item">
-            <div class="step-box">
-              <div class="step-num">Step 04</div>
-              <div class="step-label">Stage 2 Check-Ride</div>
-            </div>
-            <span class="step-arrow">→</span>
-          </div>
-          <div class="step-item">
-            <div class="step-box">
-              <div class="step-num">Step 05</div>
-              <div class="step-label">Welcome to ATV!</div>
-            </div>
-          </div>
+
         </div>
 
-      </div>
-    </section>
+        <!-- CERTIFICATION BANNER -->
+        <div class="glass-panel reveal-on-scroll" style="text-align: center; padding: 2rem; margin-bottom: 3rem; background: rgba(252, 163, 17, 0.08); border: 1px solid rgba(252, 163, 17, 0.3);">
+            <div style="font-size: 2.5rem; color: var(--color-gold); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-white); margin-bottom: 0.5rem;">Atlas Virtual Airline Family Certification</h3>
+            <p style="color: var(--color-gray); max-width: 650px; margin: 0 auto 1.5rem auto;">
+                Upon passing both stages, you officially join the Atlas Virtual family. Receive your certification, rank assignment, Pilot Handbook, and full access to all VA global operations.
+            </p>
+            <a href="#" class="btn-primary glass-btn" style="max-width: 200px; margin: 0 auto;">
+                Apply Now <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <!-- FOOTER LOGO — replace URL to change footer logo -->
-            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual" />
-            <span class="footer-logo-text">Atlas Virtual</span>
-          </div>
-          <p class="footer-tagline">Global heavy cargo logistics and elite passenger charter operations in Infinite Flight. Discipline. Precision. Professionalism.</p>
+        <!-- THE PROCESS TIMELINE -->
+        <h2 class="section-title reveal-on-scroll" style="text-align: left; padding-left: 0.5rem; margin-bottom: 1.5rem;">The Application Process</h2>
+        
+        <div class="operations-list reveal-on-scroll" style="margin-bottom: 2rem;">
+            <div class="op-card">
+                <span class="op-number">01</span>
+                <i class="fa-solid fa-file-pen op-icon"></i>
+                <span class="op-text">Submit Application</span>
+            </div>
+            <div class="op-card">
+                <span class="op-number">02</span>
+                <i class="fa-brands fa-discourse op-icon"></i>
+                <span class="op-text">Team Review via IFC</span>
+            </div>
+            <div class="op-card">
+                <span class="op-number">03</span>
+                <i class="fa-solid fa-book op-icon"></i>
+                <span class="op-text">Stage 1 Theory Exam</span>
+            </div>
+            <div class="op-card">
+                <span class="op-number">04</span>
+                <i class="fa-solid fa-plane-circle-check op-icon"></i>
+                <span class="op-text">Stage 2 Check-Ride</span>
+            </div>
+            <div class="op-card" style="grid-column: 1 / -1; background: rgba(252, 163, 17, 0.1);">
+                <span class="op-number" style="color: var(--color-gold);">05</span>
+                <i class="fa-solid fa-champagne-glasses op-icon text-gold"></i>
+                <span class="op-text" style="font-weight: 700; color: var(--color-gold);">Welcome to ATV! 🎉</span>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Navigate</div>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="staff.html">Staff</a></li>
-            <li><a href="fleet.html">Our Fleet</a></li>
-            <li><a href="routes.html">Routes</a></li>
-            <li><a href="training.html">Training</a></li>
-            <li><a href="ranks.html">Ranks</a></li>
-            <li><a href="apply.html">Apply Now</a></li>
-          </ul>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Staff</div>
-          <ul class="footer-links">
-            <!-- IFC PROFILE LINKS — update href for each person -->
-            <li><a href="https://community.infiniteflight.com/u/ravikumar" target="_blank">CEO — ravikumar</a></li>
-            <li><a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank">COO — priyanshu_pandey</a></li>
-            <!-- CFO IFC LINK — replace # with actual IFC profile URL -->
-            <li><a href="#" target="_blank">CFO — Recruiting</a></li>
-            <li style="color:var(--text-muted);">HR — Recruiting</li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Community</div>
-          <ul class="footer-links">
-            <!-- IFC FORUM LINK — update if URL changes -->
-            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
-            <!-- IFC THREAD LINK — replace # with actual thread URL when available -->
-            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
-            <li><a href="apply.html">Apply to Join</a></li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Social Media</div>
-          <ul class="footer-links">
-            <!-- SOCIAL LINKS — add your URLs in href="" below -->
-            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">X (Twitter)</a></li>
-            <li><a href="#" target="_blank">Facebook</a></li>
-            <li><a href="#" target="_blank">VK</a></li>
-          </ul>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
         </div>
-      </div>
-      <div class="footer-inner" style="padding-top:0;border-top:none;">
-        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
-          <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
-          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
-        </div>
-      </div>
-      <!-- PROUDLY LINE — edit text if needed -->
-      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
 
-  </div>
-  <script src="nav.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

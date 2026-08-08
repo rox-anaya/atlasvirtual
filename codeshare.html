@@ -1,223 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codeshare Partners — Atlas Virtual</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Codeshare Partners | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=2.9">
+    <style>
+        /* Search Bar Styling */
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 3rem;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(20, 33, 61, 0.15);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #14213D;
+            outline: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus {
+            border-color: var(--color-gold);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 6px 16px rgba(252, 163, 17, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        /* Partner Card Layout matching your sketch */
+        .partner-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .partner-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 1rem;
+        }
+        .partner-left-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+            min-width: 0;
+        }
+        .partner-text-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            min-width: 0;
+        }
+        .partner-right-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+        .partner-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            padding: 0;
+        }
+        .partner-card.active .partner-details {
+            max-height: 150px;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(20, 33, 61, 0.1);
+            margin-top: 0.75rem;
+        }
+        
+        /* Logo Image Formatting */
+        .partner-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain !important;
+            background: rgba(20, 33, 61, 0.05);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid rgba(20, 33, 61, 0.15);
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual Logo" />
-        <span class="nav-logo-text">Atlas Virtual</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="about.html">About Us</a>
-            <a href="staff.html">Staff</a>
-          </div>
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
         </div>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="fleet.html">Fleet</a>
-            <a href="routes.html">Routes</a>
-            <a href="ranks.html">Ranks</a>
-          </div>
-        </div>
-        <a href="training.html">Training</a>
-        <a href="apply.html" class="nav-apply">Apply Now</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu"><a href="about.html">About Us</a><a href="staff.html">Staff</a></div>
-    </div>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu"><a href="fleet.html">Fleet</a><a href="routes.html">Routes</a><a href="ranks.html">Ranks</a></div>
-    </div>
-    <a href="training.html">Training</a>
-    <a href="apply.html" class="mob-apply">Apply Now</a>
-  </div>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
 
-  <div class="page-wrapper">
-    <div class="page-hero">
-      <div class="page-hero-inner">
-        <p class="section-eyebrow">Partner Network</p>
-        <h1 class="section-title">Codeshare Partners</h1>
-        <div class="section-rule"></div>
-        <p class="section-desc">Atlas Virtual's partner airlines and codeshare agreements across the Infinite Flight community.</p>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="section-inner">
-
-        <!-- Stats bar -->
-        <div style="display:flex;align-items:center;gap:24px;margin-bottom:32px;flex-wrap:wrap;">
-          <span class="pilot-count" id="partnerCount" style="font-size:0.9rem;"></span>
-          <input class="pilot-search-input" id="partnerSearch" type="text"
-            placeholder="Search partner airlines…" oninput="filterPartners()"
-            style="max-width:320px;" />
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <!-- PAGE INTRO -->
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2rem;">
+            <h3 class="sub-heading" style="color: var(--color-gold);">Partner Network</h3>
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem; margin-bottom: 0.5rem;">Codeshare Partners</h2>
+            <p style="color: #4A5568; font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Expand your flight operations through Atlas Virtual's strategic codeshare agreements.
+            </p>
         </div>
 
-        <!-- Cards rendered by JS -->
-        <div class="codeshare-grid" id="codeshareGrid"></div>
+        <!-- LIVE SEARCH BAR -->
+        <div class="reveal-on-scroll search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="partnerSearch" class="search-bar" placeholder="Search partner airlines..." onkeyup="filterPartners()">
+        </div>
 
-      </div>
-    </section>
+        <!-- PARTNERS LIST CONTAINER -->
+        <div id="partnersList" class="reveal-on-scroll" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem;">
+            
+            <!-- SpiceJet Virtual Airline -->
+            <div class="glass-panel partner-card" onclick="togglePartner(this)" data-name="spicejet virtual airline">
+                <div class="partner-main-row">
+                    <!-- Left: Logo & Stacked Text (VA Name + Active Partner) -->
+                    <div class="partner-left-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="SpiceJet Virtual">
+                        <div class="partner-text-stack">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1.05rem;">SpiceJet Virtual Airline</h3>
+                            <span style="font-size: 0.75rem; font-weight: 700; color: #B5651D; text-transform: uppercase; letter-spacing: 0.5px;">Active Partner</span>
+                        </div>
+                    </div>
+                    <!-- Right: Toggle Icon -->
+                    <div class="partner-right-group">
+                        <i class="fa-solid fa-plus partner-icon-toggle" style="color: #14213D; font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <div class="partner-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">
+                        Strategic codeshare partnership integrated directly into Atlas Virtual flight dispatch for seamless regional connections across South Asia.
+                    </p>
+                </div>
+            </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual" />
-            <span class="footer-logo-text">Atlas Virtual</span>
-          </div>
-          <p class="footer-tagline">Global heavy cargo logistics and elite passenger charter operations in Infinite Flight. Discipline. Precision. Professionalism.</p>
+            <!-- Jet Airways -->
+            <div class="glass-panel partner-card" onclick="togglePartner(this)" data-name="jet airways">
+                <div class="partner-main-row">
+                    <!-- Left: Logo & Stacked Text -->
+                    <div class="partner-left-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Jet Airways">
+                        <div class="partner-text-stack">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1.05rem;">Jet Airways</h3>
+                            <span style="font-size: 0.75rem; font-weight: 700; color: #B5651D; text-transform: uppercase; letter-spacing: 0.5px;">Active Partner</span>
+                        </div>
+                    </div>
+                    <!-- Right: Toggle Icon -->
+                    <div class="partner-right-group">
+                        <i class="fa-solid fa-plus partner-icon-toggle" style="color: #14213D; font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <div class="partner-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">
+                        Joint passenger charter agreement offering Atlas Virtual pilots extended routing options across major international hubs.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Finnair Virtual -->
+            <div class="glass-panel partner-card" onclick="togglePartner(this)" data-name="finnair virtual">
+                <div class="partner-main-row">
+                    <!-- Left: Logo & Stacked Text -->
+                    <div class="partner-left-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Finnair Virtual">
+                        <div class="partner-text-stack">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1.05rem;">Finnair Virtual</h3>
+                            <span style="font-size: 0.75rem; font-weight: 700; color: #B5651D; text-transform: uppercase; letter-spacing: 0.5px;">Active Partner</span>
+                        </div>
+                    </div>
+                    <!-- Right: Toggle Icon -->
+                    <div class="partner-right-group">
+                        <i class="fa-solid fa-plus partner-icon-toggle" style="color: #14213D; font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <div class="partner-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">
+                        European alliance connection linking Northern European hubs with Atlas Virtual's global cargo and passenger routes.
+                    </p>
+                </div>
+            </div>
+
         </div>
-        <div>
-          <div class="footer-col-title">Navigate</div>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="fleet.html">Our Fleet</a></li>
-            <li><a href="routes.html">Routes</a></li>
-            <li><a href="training.html">Training</a></li>
-            <li><a href="ranks.html">Ranks</a></li>
-            <li><a href="apply.html">Apply Now</a></li>
-          </ul>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Community</div>
-          <ul class="footer-links">
-            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
-            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
-            <li><a href="apply.html">Apply to Join</a></li>
-          </ul>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
         </div>
-      </div>
-      <div class="footer-inner" style="padding-top:0;border-top:none;">
-        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
-          <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
-          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
-        </div>
-      </div>
-      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
-  </div>
 
-  <script src="nav.js"></script>
-  <script>
-  /*
-  ╔══════════════════════════════════════════════════════════════╗
-  ║  CODESHARE PARTNERS DATA — ADD / EDIT / REMOVE HERE         ║
-  ║                                                              ║
-  ║  Each partner entry has:                                     ║
-  ║    name    → Airline name                                    ║
-  ║    logo    → Logo image URL (Cloudinary recommended)         ║
-  ║    desc    → Short description (1–2 sentences)              ║
-  ║    link    → Website or IFC forum link (optional, use "" to hide) ║
-  ║    linkLabel → Button label e.g. "Visit Website", "IFC Thread" ║
-  ║                                                              ║
-  ║  TO ADD a partner: copy one { } block, paste, fill details  ║
-  ║  TO REMOVE: delete that { } block                           ║
-  ║  Supports 50–100+ entries                                   ║
-  ╚══════════════════════════════════════════════════════════════╝
-  */
-  const PARTNERS = [
+    <!-- INTERACTIVE SCRIPTS (SEARCH & ACCORDION) -->
+    <script>
+        function togglePartner(card) {
+            const isOpen = card.classList.contains('active');
+            const icon = card.querySelector('.partner-icon-toggle');
+            
+            if (!isOpen) {
+                card.classList.add('active');
+                if(icon) { 
+                    icon.classList.remove('fa-plus'); 
+                    icon.classList.add('fa-minus'); 
+                }
+            } else {
+                card.classList.remove('active');
+                if(icon) { 
+                    icon.classList.remove('fa-minus'); 
+                    icon.classList.add('fa-plus'); 
+                }
+            }
+        }
 
-    /* ── HOW TO ADD A PARTNER ──────────────────────────────────────────
-       Copy one { } block below, paste at the bottom of the list,
-       and fill in the 5 fields:
-
-         name      → Airline name as you want it displayed
-         logo      → Direct image URL (Cloudinary recommended for logos)
-                     Upload the airline logo to Cloudinary, paste URL here.
-         desc      → 1–2 sentence description of the airline and partnership
-         link      → Website, IFC thread, or forum URL for this airline.
-                     Use "" (empty) to hide the button entirely.
-         linkLabel → Label shown on the button e.g. "IFC Thread", "Visit Website"
-    ─────────────────────────────────────────────────────────────────── */
-
-    /* SAMPLE ENTRY — SpiceJet Virtual */
-    {
-      name: "SpiceJet Virtual Airline",   /* ← Airline name */
-      /* LOGO URL — replace with actual SpiceJet Virtual logo from Cloudinary */
-      logo: "https://res.cloudinary.com/dsfwafyc2/image/upload/q_auto/f_auto/v1780471356/Picsart_26-06-03_12-51-37-091_nuy5w6.png",
-      /* DESCRIPTION — short summary of the airline and codeshare agreement */
-      desc: "...",
-      /* PARTNER LINK — replace # with the actual IFC thread or website URL */
-      link: "#",
-      linkLabel: "IFC Thread"            /* ← change to "Visit Website" if linking a site */
-    },
-{
-  name: "Jet Airways",
-  logo: "https://res.cloudinary.com/dsfwafyc2/image/upload/q_auto/f_auto/v1780488021/jet-airways-twitter_yii1ot.jpg",
-  desc: "...",
-  link: "#",
-  linkLabel: "IFC Thread"
-},
-{
-  name: "Finnair Virtual",
-  logo: "https://i.imgur.com/U9yPlZI.png",
-  desc: "...",
-  link: "#",
-  linkLabel: "IFC Thread"
-},
-
-    /* ── ADD MORE PARTNERS ABOVE THIS LINE ── */
-  ];
-
-  function renderPartners(list) {
-    const grid = document.getElementById('codeshareGrid');
-    const count = document.getElementById('partnerCount');
-    if (!list.length) {
-      grid.innerHTML = '<div class="pilot-empty">No codeshare partners yet. Check back soon.</div>';
-      count.textContent = '0 partners';
-      return;
-    }
-    count.textContent = list.length + ' partner' + (list.length !== 1 ? 's' : '');
-    grid.innerHTML = list.map(p => `
-      <div class="codeshare-card">
-        <img class="codeshare-logo"
-          src="${p.logo}"
-          alt="${p.name} logo"
-          onerror="this.src='https://res.cloudinary.com/dsfwafyc2/image/upload/v1778956332/Picsart_26-05-10_23-40-09-740_dd1xx1.png'" />
-        <div class="codeshare-name">${p.name}</div>
-        <div class="codeshare-desc">${p.desc}</div>
-        ${p.link ? `<a href="${p.link}" target="_blank" class="codeshare-link">${p.linkLabel || 'Learn More'} →</a>` : ''}
-      </div>
-    `).join('');
-  }
-
-  function filterPartners() {
-    const q = document.getElementById('partnerSearch').value.toLowerCase();
-    const filtered = PARTNERS.filter(p =>
-      p.name.toLowerCase().includes(q) ||
-      p.desc.toLowerCase().includes(q)
-    );
-    renderPartners(filtered);
-  }
-
-  renderPartners(PARTNERS);
-  </script>
+        function filterPartners() {
+            const input = document.getElementById('partnerSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.partner-card');
+            
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>

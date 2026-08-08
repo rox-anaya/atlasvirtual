@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Pilot Roster | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=3.1">
+    <style>
+        /* Top Bar & Search Styling */
+        .roster-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .pilot-count {
+            background: rgba(252, 163, 17, 0.15);
+            color: var(--color-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: 1px solid rgba(252, 163, 17, 0.3);
+        }
+        .search-container {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(20, 33, 61, 0.15);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #14213D;
+            outline: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus {
+            border-color: var(--color-gold);
+            box-shadow: 0 6px 16px rgba(252, 163, 17, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #718096;
+            font-size: 1rem;
+        }
+
+        /* Leaderboard Styling */
+        .leaderboard-section {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(20, 33, 61, 0.08);
+        }
+        .leaderboard-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid rgba(20, 33, 61, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .leaderboard-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .rank-badge {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+        /* Leaderboard Podium Colors */
+        .rank-1 { background: #FFD700; color: #14213D; } /* Gold */
+        .rank-2 { background: #E2E8F0; color: #14213D; } /* Silver */
+        .rank-3 { background: #CD7F32; color: #FFFFFF; } /* Bronze */
+        .rank-other { background: rgba(20, 33, 61, 0.08); color: #14213D; }
+        
+        /* Pilot Grid & Flip Cards */
+        .pilot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        .card-scene {
+            width: 100%;
+            height: 240px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .card-flip {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .card-scene.is-flipped .card-flip {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(20, 33, 61, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            border: 1px solid rgba(20, 33, 61, 0.08);
+        }
+        
+                /* Front of Card */
+        .card-front {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(20, 33, 61, 0.15); /* Crisp, visible outline */
+            border-bottom: 4px solid var(--color-gold); /* Premium gold pilot badge accent */
+        }
+        .pilot-pfp {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(20, 33, 61, 0.1);
+            margin-bottom: 0.75rem;
+        }
+        .pilot-nickname-front {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #14213D;
+            margin: 0 0 0.15rem 0;
+            text-align: center;
+            word-break: break-word;
+        }
+        .pilot-id-front {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #718096;
+            margin: 0 0 auto 0;
+        }
+        .tap-hint {
+            font-size: 0.7rem;
+            color: #A0AEC0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
+        }
+
+        /* Back of Card */
+        .card-back {
+            background: #14213D; /* Dark Blue */
+            color: #FFFFFF;      /* Explicit White Text */
+            transform: rotateY(180deg);
+            text-align: center;
+        }
+        .pilot-id-back {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-gold);
+            margin: 0 0 0.5rem 0;
+        }
+        .status-tag {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+        .status-active { background: #2ECC71; color: white; }
+        .status-reserve { background: #F1C40F; color: #14213D; }
+        
+        .pilot-rank {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin: 0 0 0.4rem 0;
+        }
+        .pilot-hours {
+            font-size: 0.8rem;
+            color: #E2E8F0;
+            margin: 0 0 auto 0;
+        }
+        .ifc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            margin-top: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .ifc-btn:hover {
+            background: var(--color-gold);
+            color: #14213D;
+            border-color: var(--color-gold);
+        }
+        
+        /* Section Dividers */
+        .roster-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem 0;
+            color: #14213D;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+        .roster-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(20, 33, 61, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
+        </div>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2rem;">
+            <h3 class="sub-heading" style="color: var(--color-gold);">Crew Portal</h3>
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem; margin-bottom: 0.5rem;">Pilot Roster</h2>
+            <p style="color: #4A5568; font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Meet the active crew. Tap any pilot card to reveal their rank, hours, and IFC profile.
+            </p>
+        </div>
+
+        <div class="roster-header reveal-on-scroll">
+            <div class="pilot-count" id="totalPilotCount">Total Pilots: 0</div>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="rosterSearch" class="search-bar" placeholder="Search by name, ID, or callsign..." onkeyup="filterRoster()">
+            </div>
+        </div>
+
+        <!-- LEADERBOARD SECTION -->
+        <div class="leaderboard-section reveal-on-scroll" id="leaderboardContainer">
+            <h3 style="margin: 0 0 0.5rem 0; color: #14213D; font-size: 1.2rem;"><i class="fa-solid fa-trophy" style="color: var(--color-gold);"></i> Top 20 Leaderboard</h3>
+            <p style="font-size: 0.85rem; color: #718096; margin-bottom: 1rem;">Ranked by total flight hours.</p>
+            <div class="leaderboard-list" id="leaderboardList">
+                <!-- Leaderboard injected via JS -->
+            </div>
+        </div>
+
+        <!-- ROSTER GRIDS -->
+        
+        <!-- Tier 1: Staff -->
+        <div id="staffSection" style="display: none;">
+            <div class="roster-divider">Command Staff</div>
+            <div class="pilot-grid" id="staffGrid"></div>
+        </div>
+
+        <!-- Tier 2: VIP / Special -->
+        <div id="vipSection" style="display: none;">
+            <div class="roster-divider">Elite & Veterans</div>
+            <div class="pilot-grid" id="vipGrid"></div>
+        </div>
+
+        <!-- Tier 3: General Roster -->
+        <div id="generalSection">
+            <div class="roster-divider">Active & Reserve Pilots</div>
+            <div class="pilot-grid" id="generalGrid"></div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
+        </div>
+    </footer>
+
+    <!-- ROSTER DATA & LOGIC -->
+    <script>
+        // Pilot Database
+        const pilots = [
+            { id: 1, callsign: '001AV', nickname: 'Rox', rank: 'Senior Captain', hours: 254, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1780495041/37f3e52b91642d95767657ab3ace6386_1_dba2wp.jpg', ifcLink: 'https://community.infiniteflight.com/u/ravikumar', ifcName: 'ravikumar' },
+            { id: 3, callsign: '003AV', nickname: 'CatNoir', rank: 'Senior First Officer', hours: 78, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1780495041/e414503cca00bc144f2055e48255609e_ch0gxp.jpg', ifcLink: 'https://community.infiniteflight.com/u/priyanshu_pandey', ifcName: 'priyanshu_pandey' },
+            { id: 181, callsign: '181AV', nickname: 'flight simulator IFS/RFS', rank: 'Captain', hours: 182, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1781070385/57a9bd1c722054ce3d2c3070679a0596_oee6yy.png', ifcLink: 'https://community.infiniteflight.com/u/Capt_Kunal', ifcName: 'Capt_Kunal' },
+            { id: 777, callsign: '777AV', nickname: 'jack', rank: 'Junior First Officer', hours: 0, status: 'Reserve', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1781178269/ee96092ac1b4479b0ad21716d0b31b5d_wcydsa.png', ifcLink: 'https://community.infiniteflight.com/u/Jack777', ifcName: 'Jack777' },
+            { id: 101, callsign: '101AV', nickname: 'Azerty.Chief', rank: 'Junior First Officer', hours: 0, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1782484011/8d1c1fd74fdb3bfee1426a8c05e1823d_x2dc8l.png', ifcLink: 'https://community.infiniteflight.com/u/alexis_lcp', ifcName: 'alexis_lcp' },
+            { id: 499, callsign: '499AV', nickname: 'Andy G', rank: 'Junior First Officer', hours: 0, status: 'Reserve', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1786187670/OgHo45H_n2f7un.png', ifcLink: 'https://community.infiniteflight.com/u/Andy_Garrett', ifcName: 'Andy_Garrett' },
+            { id: 350, callsign: '350AV', nickname: 'hongkonger', rank: 'Junior First Officer', hours: 0, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1786187884/688409bf3a5f2f10cd94945268a63ab2_of7dx9.png', ifcLink: 'https://community.infiniteflight.com/u/Ernest1331', ifcName: 'Ernest1331' },
+            { id: 169, callsign: '169AV', nickname: 'Jashwanth', rank: 'Junior First Officer', hours: 0, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1786187883/de43ae19e30c31dbbc99bf18c7c52e77_zk4kdq.png', ifcLink: 'https://community.infiniteflight.com/u/Jashwanth', ifcName: 'Jashwanth' },
+            { id: 916, callsign: '916AV', nickname: 'Luciano', rank: 'Captain', hours: 112, status: 'Reserve', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1782440174/743af204-0562-44e7-ba1e-0b135ad500a0_xqxww0.png', ifcLink: 'https://community.infiniteflight.com/u/Luciano_A_Duque', ifcName: 'Luciano_A_Duque' },
+            { id: 999, callsign: '999AV', nickname: 'T3-zzz', rank: 'Junior First Officer', hours: 0, status: 'Active', pfp: 'https://res.cloudinary.com/dsfwafyc2/image/upload/v1786208906/b521282dc8c875ff2bf20dab461e3483_wjinvf.png', ifcLink: 'https://community.infiniteflight.com/u/tahaz11', ifcName: 'tahaz11' }
+        ];
+
+        // 1. Update Pilot Count
+        document.getElementById('totalPilotCount').innerText = `Total Pilots: ${pilots.length}`;
+
+        // 2. Build Leaderboard (Hours > 0, Top 20)
+        function renderLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboardList');
+            const eligible = pilots.filter(p => p.hours > 0).sort((a, b) => b.hours - a.hours).slice(0, 20);
+            
+            if (eligible.length === 0) {
+                leaderboardList.innerHTML = `<p style="font-size: 0.9rem; color: #718096; padding: 1rem;">No flight hours logged yet.</p>`;
+                return;
+            }
+
+            let html = "";
+            eligible.forEach((p, index) => {
+                const rankNum = index + 1;
+                let badgeClass = 'rank-other';
+                if (rankNum === 1) badgeClass = 'rank-1';
+                else if (rankNum === 2) badgeClass = 'rank-2';
+                else if (rankNum === 3) badgeClass = 'rank-3';
+
+                html += `
+                    <div class="leaderboard-item">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="rank-badge ${badgeClass}">#${rankNum}</div>
+                            <img src="${p.pfp}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700; color: #14213D; font-size: 0.95rem;">${p.nickname}</span>
+                                <span style="font-size: 0.75rem; color: #718096; font-weight: 800;">${p.callsign}</span>
+                            </div>
+                        </div>
+                        <div style="font-weight: 800; color: var(--color-gold);">${p.hours} hrs</div>
+                    </div>
+                `;
+            });
+            leaderboardList.innerHTML = html;
+        }
+
+        // 3. Build Card HTML
+        function generateCardHTML(p) {
+            const statusClass = p.status.toLowerCase() === 'active' ? 'status-active' : 'status-reserve';
+            return `
+                <div class="card-scene pilot-card-element" onclick="this.classList.toggle('is-flipped')" data-name="${p.nickname.toLowerCase()}" data-id="${p.callsign.toLowerCase()}">
+                    <div class="card-flip">
+                        <!-- FRONT -->
+                        <div class="card-face card-front">
+                            <img src="${p.pfp}" class="pilot-pfp" alt="PFP">
+                            <h3 class="pilot-nickname-front">${p.nickname}</h3>
+                            <p class="pilot-id-front">${p.callsign}</p>
+                            <span class="tap-hint"><i class="fa-solid fa-hand-pointer"></i> Tap</span>
+                        </div>
+                        <!-- BACK -->
+                        <div class="card-face card-back">
+                            <h4 class="pilot-id-back">${p.callsign}</h4>
+                            <span class="status-tag ${statusClass}">${p.status}</span>
+                            <p class="pilot-rank">${p.rank}</p>
+                            <p class="pilot-hours"><i class="fa-solid fa-clock" style="color: var(--color-gold);"></i> ${p.hours} Hours</p>
+                            <a href="${p.ifcLink}" target="_blank" onclick="event.stopPropagation()" class="ifc-btn">
+                                <i class="fa-brands fa-discourse"></i> ${p.ifcName}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 4. Render Roster Grids based on Tiers
+        function renderRoster() {
+            const staff = [];
+            const vips = [];
+            const regulars = [];
+
+            pilots.forEach(p => {
+                if (p.id >= 1 && p.id <= 20) {
+                    staff.push(p);
+                } else if (p.id >= 21 && p.id <= 99) {
+                    vips.push(p);
+                } else {
+                    regulars.push(p);
+                }
+            });
+
+            // Sort logic
+            staff.sort((a, b) => a.id - b.id);
+            vips.sort((a, b) => a.id - b.id);
+            regulars.sort((a, b) => b.hours - a.hours || a.id - b.id);
+
+            // Inject Staff
+            const staffGrid = document.getElementById('staffGrid');
+            if (staff.length > 0) {
+                document.getElementById('staffSection').style.display = 'block';
+                staffGrid.innerHTML = staff.map(generateCardHTML).join('');
+            }
+
+            // Inject VIPs
+            const vipGrid = document.getElementById('vipGrid');
+            if (vips.length > 0) {
+                document.getElementById('vipSection').style.display = 'block';
+                vipGrid.innerHTML = vips.map(generateCardHTML).join('');
+            }
+
+            // Inject Regulars
+            const generalGrid = document.getElementById('generalGrid');
+            generalGrid.innerHTML = regulars.map(generateCardHTML).join('');
+        }
+
+        // 5. Live Search Filter
+        function filterRoster() {
+            const input = document.getElementById('rosterSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.pilot-card-element');
+            
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                const id = card.getAttribute('data-id');
+                if (name.includes(input) || id.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Initialize on load
+        window.onload = () => {
+            renderLeaderboard();
+            renderRoster();
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

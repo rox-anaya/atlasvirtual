@@ -1,284 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Fleet — Atlas Virtual</title>
-  <meta name="description" content="Atlas Virtual fleet — 767, 777, and 747 families for cargo and passenger operations worldwide." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Our Fleet | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=1.3">
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <!-- LOGO — replace src URL to change header logo -->
-        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual Logo" />
-        <span class="nav-logo-text">Atlas Virtual</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="about.html">About Us</a>
-            <a href="staff.html">Staff</a>
-          </div>
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
         </div>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn active">Operations <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="fleet.html" class="active">Fleet</a>
-            <a href="routes.html">Routes</a>
-            <a href="ranks.html">Ranks</a>
-          </div>
-        </div>
-        <a href="training.html">Training</a>
-        <a href="apply.html" class="nav-apply">Apply Now</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-      </div>
-    </div>
-    <div class="mob-dd open">
-      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
-        <a href="ranks.html">Ranks</a>
-      </div>
-    </div>
-    <a href="training.html">Training</a>
-    <a href="apply.html" class="mob-apply">Apply Now</a>
-  </div>
-
-  <div class="page-wrapper">
-
-    <!-- ===== PAGE HERO ===== -->
-    <div class="page-hero">
-      <div class="page-hero-inner">
-        <p class="section-eyebrow">Our Aircraft</p>
-        <h1 class="section-title">Our Fleet</h1>
-        <div class="section-rule"></div>
-        <p class="section-desc">Long-haul widebody operations covering both cargo and passenger missions across our global network.</p>
-      </div>
-    </div>
-
-    <!-- ===== FLEET GRID ===== -->
-    <section class="section">
-      <div class="section-inner">
-        <div class="fleet-grid">
-
-          <!-- 767 Family -->
-          <div class="fleet-card">
-            <img class="fleet-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779016031/file_000000003df071fab1b480a986936174_tgigcv.png" alt="Boeing 767 Family" loading="lazy" />
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">767 Family</div>
-              <div class="fleet-card-role">Cargo and Passenger</div>
-              <p class="fleet-card-desc">Mid-size widebody for regional cargo routes and charter passenger flights. The core of our short to medium haul network operations connecting key logistics points.</p>
-              <div class="fleet-tags">
-                <span class="fleet-tag">Cargo</span>
-                <span class="fleet-tag">Passenger</span>
-                <span class="fleet-tag">Medium Haul</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 777 Family -->
-          <div class="fleet-card">
-            <img class="fleet-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014696/file_00000000c9c871faa3c4662414b998af_htnwta.png" alt="Boeing 777 Family" loading="lazy" />
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">777 Family</div>
-              <div class="fleet-card-role">Long Haul Cargo and Passenger</div>
-              <p class="fleet-card-desc">Heavy widebody backbone of our long-haul global network. Connects major hubs across continents with reliability and precision on every flight segment.</p>
-              <div class="fleet-tags">
-                <span class="fleet-tag">Cargo</span>
-                <span class="fleet-tag">Passenger</span>
-                <span class="fleet-tag">Long Haul</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 747 Family -->
-          <div class="fleet-card">
-            <img class="fleet-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014716/file_00000000020c7207a19cd6f7007c27ef_arkek2.png" alt="Boeing 747 Family" loading="lazy" />
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">747 Family</div>
-              <div class="fleet-card-role">Ultra Long Haul Heavy Cargo</div>
-              <p class="fleet-card-desc">The iconic jumbo jet for our heaviest cargo operations worldwide. Maximum payload across maximum distance — the cornerstone of our transcontinental freight network.</p>
-              <div class="fleet-tags">
-                <span class="fleet-tag">Heavy Cargo</span>
-                <span class="fleet-tag">Ultra Long Haul</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── PLACEHOLDER FLEET SLOTS ──
-               To fill a slot: replace the src URL, update fleet-card-name, fleet-card-role, fleet-card-desc, and fleet-tags
-               FLEET IMAGE — replace src URL below with Cloudinary image URL -->
-
-          <!-- Fleet Slot 4 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div><!-- ← change name -->
-              <div class="fleet-card-role">Role TBA</div><!-- ← change role -->
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p><!-- ← change description -->
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 5 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 6 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 7 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 8 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 9 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 10 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-          <!-- Fleet Slot 11 -->
-          <div class="fleet-card">
-            <div class="fleet-card-img" style="height:240px;background:var(--navy-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-accent);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;">Image Coming Soon</div>
-            <div class="fleet-card-body">
-              <div class="fleet-card-name">Aircraft TBA</div>
-              <div class="fleet-card-role">Role TBA</div>
-              <p class="fleet-card-desc">Details for this aircraft type will be added soon.</p>
-              <div class="fleet-tags"><span class="fleet-tag">Coming Soon</span></div>
-            </div>
-          </div>
-
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <!-- PAGE INTRO -->
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2rem;">
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem;">Our Fleet</h2>
+            <p style="color: var(--color-gray); font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Long-haul widebody operations covering both cargo and passenger missions across our global network.
+            </p>
         </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <!-- FOOTER LOGO — replace URL to change footer logo -->
-            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual" />
-            <span class="footer-logo-text">Atlas Virtual</span>
-          </div>
-          <p class="footer-tagline">Global heavy cargo logistics and elite passenger charter operations in Infinite Flight. Discipline. Precision. Professionalism.</p>
+                <!-- FLEET GRID -->
+        <div class="fleet-grid reveal-on-scroll" id="fleet-roster">
+            
+            <!-- AIRCRAFT 1: B767-300 -->
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">B767-300</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779016031/file_000000003df071fab1b480a986936174_tgigcv.png" alt="B767-300">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-pax"><i class="fa-solid fa-users"></i> Passenger</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-route"></i> Medium Haul</span>
+                    <span class="fleet-tag tag-mfg"><i class="fa-solid fa-plane"></i> Boeing</span>
+                </div>
+                <p class="aircraft-desc">
+                    Mid-size widebody for regional charter passenger flights. The core of our short-to-medium haul network, seamlessly connecting key operational hubs.
+                </p>
+            </div>
+
+            <!-- AIRCRAFT 2: B777F -->
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">B777F</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014696/file_00000000c9c871faa3c4662414b998af_htnwta.png" alt="B777F">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-cargo"><i class="fa-solid fa-box"></i> Cargo</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-americas"></i> Long Haul</span>
+                    <span class="fleet-tag tag-mfg"><i class="fa-solid fa-plane"></i> Boeing</span>
+                </div>
+                <p class="aircraft-desc">
+                    The backbone of our heavy freight operations. This versatile twin-engine freighter delivers exceptional range and payload capacity for global cargo logistics.
+                </p>
+            </div>
+
+            <!-- AIRCRAFT 3: B747-400 -->
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">B747-400</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014716/file_00000000020c7207a19cd6f7007c27ef_arkek2.png" alt="B747-400">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-cargo"><i class="fa-solid fa-boxes-stacked"></i> Cargo / Pax</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-americas"></i> Long Haul</span>
+                    <span class="fleet-tag tag-mfg"><i class="fa-solid fa-plane"></i> Boeing</span>
+                </div>
+                <p class="aircraft-desc">
+                    A legendary heavy lifter operating in both high-density passenger charter and dedicated freight configurations, renowned for handling oversized cargo with ease.
+                </p>
+            </div>
+
+            <!-- AIRCRAFT 4: B747-8F -->
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">B747-8F</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1786168949/Screenshot_20260802_115308_com.fds.infiniteflight_zcqzox.jpg" alt="B747-8F">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-cargo"><i class="fa-solid fa-box"></i> Cargo</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-oceania"></i> Ultra-Long Haul</span>
+                    <span class="fleet-tag tag-mfg"><i class="fa-solid fa-plane"></i> Boeing</span>
+                </div>
+                <p class="aircraft-desc">
+                    Our flagship modern freighter. Offering superior fuel efficiency, extended range, and maximum payload capabilities for the most demanding global cargo routes.
+                </p>
+            </div>
+
         </div>
-        <div>
-          <div class="footer-col-title">Navigate</div>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="staff.html">Staff</a></li>
-            <li><a href="fleet.html">Our Fleet</a></li>
-            <li><a href="routes.html">Routes</a></li>
-            <li><a href="training.html">Training</a></li>
-            <li><a href="ranks.html">Ranks</a></li>
-            <li><a href="apply.html">Apply Now</a></li>
-          </ul>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+                        <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="#"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Staff</div>
-          <ul class="footer-links">
-            <!-- IFC PROFILE LINKS — update href for each person -->
-            <li><a href="https://community.infiniteflight.com/u/ravikumar" target="_blank">CEO — ravikumar</a></li>
-            <li><a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank">COO — priyanshu_pandey</a></li>
-            <!-- CFO IFC LINK — replace # with actual IFC profile URL -->
-            <li><a href="#" target="_blank">CFO — Recruiting</a></li>
-            <li style="color:var(--text-muted);">HR — Recruiting</li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Community</div>
-          <ul class="footer-links">
-            <!-- IFC FORUM LINK — update if URL changes -->
-            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
-            <!-- IFC THREAD LINK — replace # with actual thread URL when available -->
-            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
-            <li><a href="apply.html">Apply to Join</a></li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Social Media</div>
-          <ul class="footer-links">
-            <!-- SOCIAL LINKS — add your URLs in href="" below -->
-            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">X (Twitter)</a></li>
-            <li><a href="#" target="_blank">Facebook</a></li>
-            <li><a href="#" target="_blank">VK</a></li>
-          </ul>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
         </div>
-      </div>
-      <div class="footer-inner" style="padding-top:0;border-top:none;">
-        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
-          <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
-          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
-        </div>
-      </div>
-      <!-- PROUDLY LINE — edit text if needed -->
-      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
 
-  </div>
-  <script src="nav.js"></script>
+    <script src="app.js"></<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Staff | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=1.2">
+</head>
+<body>
+
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
+        </div>
+        <button class="hamburg-menu" aria-label="Open Menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <h2 class="section-title reveal-on-scroll" style="color: var(--color-gold); margin-bottom: 2rem;">Leadership & Operations</h2>
+
+        <!-- STAFF GRID (Target ID for Admin Panel Injection) -->
+        <div class="staff-grid reveal-on-scroll" id="staff-roster">
+            
+            <!-- STAFF CARD 1: CEO -->
+            <div class="staff-card glass-panel">
+                <div class="staff-header">
+                    <!-- Placeholder for Profile Picture -->
+                    <div class="staff-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Ravikumar</h3>
+                        <h4 class="staff-role text-gold">CEO</h4>
+                        <span class="staff-id">001AV</span>
+                    </div>
+                </div>
+                <div class="staff-body">
+                    <p class="staff-desc">Founder and Chief Executive Officer. Oversees all VA operations, strategy and community growth.</p>
+                </div>
+                <div class="staff-footer">
+                    <a href="#" class="btn-dark-glass staff-ifc-btn">
+                        <i class="fa-brands fa-discourse"></i> IFC Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- STAFF CARD 2: COO -->
+            <div class="staff-card glass-panel">
+                <div class="staff-header">
+                    <div class="staff-avatar">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Priyanshu Pandey</h3>
+                        <h4 class="staff-role text-gold">COO</h4>
+                        <span class="staff-id">002AV</span>
+                    </div>
+                </div>
+                <div class="staff-body">
+                    <p class="staff-desc">Chief Operating Officer. Manages departmental operations and ensures VA procedures are upheld.</p>
+                </div>
+                <div class="staff-footer">
+                    <a href="#" class="btn-dark-glass staff-ifc-btn">
+                        <i class="fa-brands fa-discourse"></i> IFC Profile
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+                        <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+>
 </body>
 </html>

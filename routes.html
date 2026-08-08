@@ -1,290 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Network — Atlas Virtual</title>
-  <meta name="description" content="Atlas Virtual global route network — 20+ hubs across 6 continents." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Global Routes | Atlas Virtual</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 3D GLOBE DEPENDENCIES (Three.js & Globe.gl) -->
+    <script src="https://unpkg.com/three"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+    
+    <link rel="stylesheet" href="style.css?v=1.9">
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <!-- LOGO — replace src URL to change header logo -->
-        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual Logo" />
-        <span class="nav-logo-text">Atlas Virtual</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">About Us <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="about.html">About Us</a>
-            <a href="staff.html">Staff</a>
-          </div>
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
         </div>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn active">Operations <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="fleet.html">Fleet</a>
-            <a href="routes.html" class="active">Routes</a>
-            <a href="ranks.html">Ranks</a>
-          </div>
-        </div>
-        <a href="training.html">Training</a>
-        <a href="apply.html" class="nav-apply">Apply Now</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-      </div>
-    </div>
-    <div class="mob-dd open">
-      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
-        <a href="ranks.html">Ranks</a>
-      </div>
-    </div>
-    <a href="training.html">Training</a>
-    <a href="apply.html" class="mob-apply">Apply Now</a>
-  </div>
-
-  <div class="page-wrapper">
-
-    <!-- ===== PAGE HERO ===== -->
-    <div class="page-hero">
-      <div class="page-hero-inner">
-        <p class="section-eyebrow">Where We Fly</p>
-        <h1 class="section-title">Global Network</h1>
-        <div class="section-rule"></div>
-        <p class="section-desc">Our cargo and charter network spans 6 continents, connecting major logistics hubs across the globe with precision operations.</p>
-      </div>
-    </div>
-
-    <!-- ===== ROUTE STATS ===== -->
-    <section class="section" style="padding-bottom: 0;">
-      <div class="section-inner">
-        <div class="route-stats">
-          <div class="route-stat">
-            <div class="route-stat-num">20+</div>
-            <div class="route-stat-label">Hub Airports</div>
-          </div>
-          <div class="route-stat">
-            <div class="route-stat-num">6</div>
-            <div class="route-stat-label">Continents</div>
-          </div>
-          <div class="route-stat">
-            <div class="route-stat-num">3</div>
-            <div class="route-stat-label">Aircraft Types</div>
-          </div>
-          <div class="route-stat">
-            <div class="route-stat-num">2</div>
-            <div class="route-stat-label">Operation Types</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== INTERACTIVE MAP ===== -->
-    <section class="section" style="padding-top: 40px; padding-bottom: 0;">
-      <div class="section-inner">
-        <div class="map-container">
-          <div class="map-label">🌐 &nbsp;Live Route Network</div>
-          <iframe
-            src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/scl/fi/nkt0m5hovd7cjzx2drjub/Atlas-Virtual-Global-Routes.json?rlkey=pxpodat7hy6z97l8otlah6uu7&dl=0"
-            title="Atlas Virtual Global Route Network"
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== OUR HUBS ===== -->
-    <section class="section">
-      <div class="section-inner">
-        <p class="section-eyebrow">Our Bases</p>
-        <h2 class="section-title">Our Hubs</h2>
-        <div class="section-rule"></div>
-        <p class="section-desc" style="margin-bottom: 32px;">Connecting the world from our strategically positioned cargo and charter bases across 6 continents.</p>
-
-        <div class="hubs-tabs">
-          <span class="hub-tab active">Main Hubs — Primary Operations</span>
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2rem;">
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem;">Global Network</h2>
+            <p style="color: var(--color-gray); font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Rotate and explore our 3D interactive globe, major operational hubs, and live routes.
+            </p>
         </div>
 
-        <!-- Main Hubs Row 1 -->
-        <!-- All 5 main hubs in one uniform grid: 5-col desktop, 2-col mobile -->
-        <div class="hubs-grid-uniform">
-          <div class="hub-card">
-            <img class="hub-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014743/file_00000000fc7471faa249d57734a2e68f_c7sgv9.png" alt="Anchorage" loading="lazy" />
-            <div class="hub-card-body">
-              <div class="hub-icao">PANC</div>
-              <div class="hub-location">Anchorage, USA</div>
-              <div class="hub-role">Primary Global Hub</div>
+        <!-- 3D INTERACTIVE GLOBE SECTION -->
+        <section class="reveal-on-scroll" style="margin-bottom: 3rem;">
+            <div class="glass-panel" style="padding: 0.5rem; overflow: hidden; position: relative;">
+                <!-- 3D Globe Container -->
+                <div id="globe-container" style="width: 100%; height: 450px; border-radius: 12px;"></div>
+                <div class="globe-hint"><i class="fa-solid fa-magnifying-glass"></i> Pinch to zoom & drag to rotate</div>
             </div>
-          </div>
-          <div class="hub-card">
-            <img class="hub-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014775/file_00000000acd871faa57d9e94fcb755e4_n0aszd.png" alt="Cincinnati" loading="lazy" />
-            <div class="hub-card-body">
-              <div class="hub-icao">KCVG</div>
-              <div class="hub-location">Cincinnati, USA</div>
-              <div class="hub-role">Main Logistics Base</div>
+        </section>
+
+        <!-- HUBS SECTION -->
+        <h2 class="section-title reveal-on-scroll" style="text-align: left; padding-left: 0.5rem;">Operational Hubs</h2>
+        
+        <div class="fleet-grid reveal-on-scroll" style="margin-bottom: 3rem;">
+            
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">Anchorage (PANC)</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014743/file_00000000fc7471faa249d57734a2e68f_c7sgv9.png" alt="Anchorage Hub">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-cargo"><i class="fa-solid fa-star"></i> Main Hub</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-americas"></i> North America</span>
+                </div>
             </div>
-          </div>
-          <div class="hub-card">
-            <img class="hub-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014808/file_00000000b5147209896a74f32b074521_vwaj9k.png" alt="Miami" loading="lazy" />
-            <div class="hub-card-body">
-              <div class="hub-icao">KMIA</div>
-              <div class="hub-location">Miami, USA</div>
-              <div class="hub-role">South America Gateway</div>
+
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">Miami (KMIA)</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014808/file_00000000b5147209896a74f32b074521_vwaj9k.png" alt="Miami Hub">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-pax"><i class="fa-solid fa-location-dot"></i> Focus City</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-americas"></i> Latin America Gateway</span>
+                </div>
             </div>
-          </div>
-          <div class="hub-card">
-            <img class="hub-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014795/file_0000000010e87207b54abdd55fb9e50c_uw36ke.png" alt="Los Angeles" loading="lazy" />
-            <div class="hub-card-body">
-              <div class="hub-icao">KLAX</div>
-              <div class="hub-location">Los Angeles, USA</div>
-              <div class="hub-role">West Coast Ops</div>
+
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">New York (KJFK)</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014822/file_000000003ecc720996442cd697f2cb1f_tyuzgg.png" alt="New York Hub">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-pax"><i class="fa-solid fa-location-dot"></i> Focus City</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-europe"></i> Transatlantic Gateway</span>
+                </div>
             </div>
-          </div>
-          <div class="hub-card">
-            <img class="hub-card-img" src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014822/file_000000003ecc720996442cd697f2cb1f_tyuzgg.png" alt="JFK" loading="lazy" />
-            <div class="hub-card-body">
-              <div class="hub-icao">KJFK</div>
-              <div class="hub-location">New York, USA</div>
-              <div class="hub-role">Intl Charter Hub</div>
+
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">Los Angeles (KLAX)</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014795/file_0000000010e87207b54abdd55fb9e50c_uw36ke.png" alt="Los Angeles Hub">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-pax"><i class="fa-solid fa-location-dot"></i> Focus City</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-asia"></i> Transpacific Gateway</span>
+                </div>
             </div>
-          </div>
+
+            <div class="fleet-card glass-panel">
+                <h3 class="aircraft-name">Cincinnati (KCVG)</h3>
+                <div class="aircraft-image-wrapper">
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779014775/file_00000000acd871faa57d9e94fcb755e4_n0aszd.png" alt="Cincinnati Hub">
+                </div>
+                <div class="aircraft-tags">
+                    <span class="fleet-tag tag-cargo"><i class="fa-solid fa-location-dot"></i> Cargo Hub</span>
+                    <span class="fleet-tag tag-range"><i class="fa-solid fa-earth-americas"></i> US Domestic Gateway</span>
+                </div>
+            </div>
+
         </div>
 
-      </div>
-    </section>
+        <!-- ROUTES LIST -->
+        <h2 class="section-title reveal-on-scroll" style="text-align: left; padding-left: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+            Current Routes
+            <span style="font-size: 0.8rem; font-weight: 500; color: var(--color-mid-gray);">Populated via Dispatch</span>
+        </h2>
+        
+        <div class="glass-panel reveal-on-scroll" style="padding: 1rem;">
+            <div id="routes-data-container" class="routes-list-container">
+                <div class="route-list-item">
+                    <div class="route-airports">
+                        <span class="apt-code text-gold">PANC</span>
+                        <i class="fa-solid fa-plane route-arrow"></i>
+                        <span class="apt-code text-gold">KCVG</span>
+                    </div>
+                    <div class="route-details">
+                        <span class="route-flight-num">5Y8271</span>
+                        <span class="route-aircraft">B747-8F</span>
+                        <span class="fleet-tag tag-cargo" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">Cargo</span>
+                    </div>
+                </div>
 
-    <!-- ===== NETWORK TABLE ===== -->
-    <section class="section" style="padding-top: 0;">
-      <div class="section-inner">
-        <div class="network-title">Network Operations</div>
-        <div style="overflow-x: auto;">
-          <table class="network-table">
-            <thead>
-              <tr>
-                <th>ICAO</th>
-                <th>Location</th>
-                <th>Region</th>
-                <th>Primary Role</th>
-                <th>Fleet</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="icao-code">PANC</span></td><td class="location-name">Anchorage, USA</td><td>North America</td><td>Primary Global Hub</td><td>747 / 777</td></tr>
-              <tr><td><span class="icao-code">KCVG</span></td><td class="location-name">Cincinnati, USA</td><td>North America</td><td>Main Logistics Base</td><td>767 / 777</td></tr>
-              <tr><td><span class="icao-code">KMIA</span></td><td class="location-name">Miami, USA</td><td>North America</td><td>South America Gateway</td><td>767 / 777</td></tr>
-              <tr><td><span class="icao-code">KJFK</span></td><td class="location-name">New York, USA</td><td>North America</td><td>Intl Charter Hub</td><td>777</td></tr>
-              <tr><td><span class="icao-code">KLAX</span></td><td class="location-name">Los Angeles, USA</td><td>North America</td><td>West Coast Ops</td><td>767 / 777</td></tr>
-              <tr><td><span class="icao-code">MMMX</span></td><td class="location-name">Mexico City, Mexico</td><td>Latin America</td><td>Latin America Ops</td><td>767</td></tr>
-              <tr><td><span class="icao-code">SBGR</span></td><td class="location-name">São Paulo, Brazil</td><td>South America</td><td>South America Hub</td><td>777 / 747</td></tr>
-              <tr><td><span class="icao-code">EGLLL</span></td><td class="location-name">London, UK</td><td>Europe</td><td>Europe Charter Ops</td><td>777</td></tr>
-              <tr><td><span class="icao-code">EDDF</span></td><td class="location-name">Frankfurt, Germany</td><td>Europe</td><td>Europe Freight Hub</td><td>777 / 747</td></tr>
-              <tr><td><span class="icao-code">OMDB</span></td><td class="location-name">Dubai, UAE</td><td>Middle East</td><td>Middle East Hub</td><td>777 / 747</td></tr>
-              <tr><td><span class="icao-code">VIDP</span></td><td class="location-name">Delhi, India</td><td>South Asia</td><td>South Asia Gateway</td><td>767 / 777</td></tr>
-              <tr><td><span class="icao-code">VABB</span></td><td class="location-name">Mumbai, India</td><td>South Asia</td><td>India Cargo Hub</td><td>767 / 777</td></tr>
-              <tr><td><span class="icao-code">VOBL</span></td><td class="location-name">Bengaluru, India</td><td>South Asia</td><td>South Asian Corridor</td><td>767</td></tr>
-              <tr><td><span class="icao-code">ZBAA</span></td><td class="location-name">Beijing, China</td><td>East Asia</td><td>North Asia Freight</td><td>777 / 747</td></tr>
-              <tr><td><span class="icao-code">ZSPD</span></td><td class="location-name">Shanghai, China</td><td>East Asia</td><td>Transpacific Bridge</td><td>777</td></tr>
-              <tr><td><span class="icao-code">VHHH</span></td><td class="location-name">Hong Kong</td><td>East Asia</td><td>Transpacific Freight</td><td>747 / 777</td></tr>
-              <tr><td><span class="icao-code">WSSS</span></td><td class="location-name">Singapore</td><td>SE Asia</td><td>SE Asia Logistics</td><td>777</td></tr>
-              <tr><td><span class="icao-code">RKSI</span></td><td class="location-name">Seoul, South Korea</td><td>East Asia</td><td>Pacific Rim Logistics</td><td>777 / 747</td></tr>
-              <tr><td><span class="icao-code">RJTT</span></td><td class="location-name">Tokyo, Japan</td><td>East Asia</td><td>North Pacific Hub</td><td>777 / 747</td></tr>
-              <tr><td><span class="icao-code">YSSY</span></td><td class="location-name">Sydney, Australia</td><td>Oceania</td><td>Oceanic Heavy Freight</td><td>747</td></tr>
-              <tr><td><span class="icao-code">FAOR</span></td><td class="location-name">Johannesburg, SA</td><td>Africa</td><td>African Gateway</td><td>777</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+                <div class="route-list-item">
+                    <div class="route-airports">
+                        <span class="apt-code text-gold">KLAX</span>
+                        <i class="fa-solid fa-plane route-arrow"></i>
+                        <span class="apt-code text-gold">KMIA</span>
+                    </div>
+                    <div class="route-details">
+                        <span class="route-flight-num">5Y402</span>
+                        <span class="route-aircraft">B777F</span>
+                        <span class="fleet-tag tag-cargo" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">Cargo</span>
+                    </div>
+                </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <!-- FOOTER LOGO — replace URL to change footer logo -->
-            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual" />
-            <span class="footer-logo-text">Atlas Virtual</span>
-          </div>
-          <p class="footer-tagline">Global heavy cargo logistics and elite passenger charter operations in Infinite Flight. Discipline. Precision. Professionalism.</p>
+                <div class="route-list-item">
+                    <div class="route-airports">
+                        <span class="apt-code text-gold">KJFK</span>
+                        <i class="fa-solid fa-plane route-arrow"></i>
+                        <span class="apt-code text-gold">EGLL</span>
+                    </div>
+                    <div class="route-details">
+                        <span class="route-flight-num">5Y114</span>
+                        <span class="route-aircraft">B767-300</span>
+                        <span class="fleet-tag tag-pax" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">Pax</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Navigate</div>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="staff.html">Staff</a></li>
-            <li><a href="fleet.html">Our Fleet</a></li>
-            <li><a href="routes.html">Routes</a></li>
-            <li><a href="training.html">Training</a></li>
-            <li><a href="ranks.html">Ranks</a></li>
-            <li><a href="apply.html">Apply Now</a></li>
-          </ul>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+                        <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="ranks.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Staff</div>
-          <ul class="footer-links">
-            <!-- IFC PROFILE LINKS — update href for each person -->
-            <li><a href="https://community.infiniteflight.com/u/ravikumar" target="_blank">CEO — ravikumar</a></li>
-            <li><a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank">COO — priyanshu_pandey</a></li>
-            <!-- CFO IFC LINK — replace # with actual IFC profile URL -->
-            <li><a href="#" target="_blank">CFO — Recruiting</a></li>
-            <li style="color:var(--text-muted);">HR — Recruiting</li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Community</div>
-          <ul class="footer-links">
-            <!-- IFC FORUM LINK — update if URL changes -->
-            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
-            <!-- IFC THREAD LINK — replace # with actual thread URL when available -->
-            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
-            <li><a href="apply.html">Apply to Join</a></li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Social Media</div>
-          <ul class="footer-links">
-            <!-- SOCIAL LINKS — add your URLs in href="" below -->
-            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">X (Twitter)</a></li>
-            <li><a href="#" target="_blank">Facebook</a></li>
-            <li><a href="#" target="_blank">VK</a></li>
-          </ul>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
         </div>
-      </div>
-      <div class="footer-inner" style="padding-top:0;border-top:none;">
-        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
-          <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
-          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
-        </div>
-      </div>
-      <!-- PROUDLY LINE — edit text if needed -->
-      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
 
-  </div>
-  <script src="nav.js"></script>
+    <!-- SCROLL ANIMATION JS -->
+    <script src="app.js"></script>
+
+    <!-- 3D GLOBE INITIALIZATION SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById('globe-container');
+            if (container) {
+                                const hubsData = [
+                    /* --- ORIGINAL HUBS --- */
+                    { lat: 61.1743, lng: -149.9960, name: "Anchorage (PANC)", color: "#FCA311" },
+                    { lat: 25.7959, lng: -80.2870, name: "Miami (KMIA)", color: "#00E5FF" },
+                    { lat: 40.6413, lng: -73.7781, name: "New York (KJFK)", color: "#00E5FF" },
+                    { lat: 33.9416, lng: -118.4085, name: "Los Angeles (KLAX)", color: "#00E5FF" },
+                    { lat: 39.0461, lng: -84.6621, name: "Cincinnati (KCVG)", color: "#FCA311" },
+                    
+                    /* --- NEW GLOBAL DESTINATIONS --- */
+                    { lat: 37.4602, lng: 126.4407, name: "Seoul (RKSI)", color: "#2ECC71" },
+                    { lat: 35.7647, lng: 140.3863, name: "Tokyo (RJAA)", color: "#2ECC71" },
+                    { lat: 12.9900, lng: 80.1693, name: "Chennai (VOMM)", color: "#2ECC71" },
+                    { lat: -26.1367, lng: 28.2411, name: "Johannesburg (FAOR)", color: "#2ECC71" },
+                    { lat: 32.8998, lng: -97.0403, name: "Dallas (KDFW)", color: "#2ECC71" },
+                    { lat: -0.1292, lng: -78.3575, name: "Quito (SEQM)", color: "#2ECC71" },
+                    { lat: 21.3206, lng: -157.9242, name: "Honolulu (PHNL)", color: "#2ECC71" },
+                    { lat: 49.6266, lng: 6.2115, name: "Luxembourg (ELLX)", color: "#2ECC71" },
+                    { lat: 41.9742, lng: -87.9073, name: "Chicago (KORD)", color: "#2ECC71" },
+                    { lat: 47.4502, lng: -122.3088, name: "Seattle (KSEA)", color: "#2ECC71" },
+                    { lat: 38.2731, lng: -121.9283, name: "Fairfield (KSUU)", color: "#2ECC71" },
+                    { lat: 31.1443, lng: 121.8083, name: "Shanghai (ZSPD)", color: "#2ECC71" },
+                    { lat: 52.3105, lng: 4.7683, name: "Amsterdam (EHAM)", color: "#2ECC71" },
+                    { lat: 26.4712, lng: 49.7979, name: "Dammam (OEDF)", color: "#2ECC71" },
+                    { lat: 41.6662, lng: -1.0416, name: "Zaragoza (LEZG)", color: "#2ECC71" },
+                    { lat: 39.1295, lng: -75.4659, name: "Dover (KDOV)", color: "#2ECC71" },
+                    { lat: 49.4360, lng: 7.6000, name: "Ramstein (ETAR)", color: "#2ECC71" },
+                    { lat: 22.3080, lng: 113.9185, name: "Hong Kong (VHHH)", color: "#2ECC71" },
+                    { lat: 24.5440, lng: 118.1277, name: "Xiamen (ZSAM)", color: "#2ECC71" },
+                    { lat: 34.6404, lng: -86.7731, name: "Huntsville (KHSV)", color: "#2ECC71" },
+                    { lat: 40.4675, lng: 50.0467, name: "Baku (UBBB)", color: "#2ECC71" },
+                    { lat: 13.5841, lng: 144.9247, name: "Andersen (PGUA)", color: "#2ECC71" },
+                    { lat: 26.3556, lng: 127.7675, name: "Okinawa (RODN)", color: "#2ECC71" }
+                ];
+
+                const myGlobe = Globe()
+                    (container)
+                    .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+                    .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+                    .backgroundColor('rgba(0,0,0,0)')
+                    .htmlElementsData(hubsData)
+                    .htmlElement(d => {
+                        const el = document.createElement('div');
+                        el.innerHTML = `<div style="background: rgba(20, 33, 61, 0.85); border: 1px solid ${d.color}; color: white; padding: 4px 8px; border-radius: 6px; font-family: Inter, sans-serif; font-size: 10px; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">✈ ${d.name}</div>`;
+                        return el;
+                    });
+
+                myGlobe.controls().autoRotate = true;
+                myGlobe.controls().autoRotateSpeed = 0.5;
+                myGlobe.controls().enableZoom = true; // Enabled zoom configuration
+
+                function resizeGlobe() {
+                    myGlobe.width(container.clientWidth);
+                    myGlobe.height(container.clientHeight);
+                }
+                window.addEventListener('resize', resizeGlobe);
+                resizeGlobe();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "name": "Atlas Virtual",
+  "short_name": "Atlas VA",
+  "description": "Atlas Virtual — Infinite Flight VA",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#E2EAF4",
+  "theme_color": "#14213D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

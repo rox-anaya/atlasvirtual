@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Events & News | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=1.5">
+</head>
+<body>
+
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
+        </div>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <!-- PAGE INTRO -->
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2.5rem;">
+            <h3 class="sub-heading" style="color: var(--color-gray);">Live & Upcoming</h3>
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem; margin-bottom: 0.5rem;">Events & News</h2>
+            <p style="color: var(--color-gray); font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Stay up to date with Atlas Virtual events, competitions, and the latest VA news.
+            </p>
+        </div>
+
+        <!-- EVENTS SECTION (Target ID for Admin Panel Injection) -->
+        <div id="events-container" class="reveal-on-scroll">
+            <div class="event-card glass-panel">
+                
+                <div class="event-banner-wrapper">
+                    <!-- Changeable via Admin Panel -->
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779276826/Picsart_26-05-20_17-02-45-913_dt9ced.jpg" alt="Event Banner" id="current-event-banner">
+                </div>
+                
+                <h3 class="event-title">Atlas Freight Ops: Asia to Europe</h3>
+                
+                <!-- Event Data Boxes -->
+                <div class="event-details-grid">
+                    <div class="event-detail-box">
+                        <i class="fa-regular fa-calendar"></i> <span>28 Aug 2026</span>
+                    </div>
+                    <div class="event-detail-box">
+                        <i class="fa-regular fa-clock"></i> <span>17:00Z</span>
+                    </div>
+                    <div class="event-detail-box">
+                        <i class="fa-solid fa-plane-departure"></i> <span>Cargo Run</span>
+                    </div>
+                    <div class="event-detail-box">
+                        <i class="fa-solid fa-server"></i> <span>Expert Server</span>
+                    </div>
+                </div>
+                
+                <p class="event-desc">
+                    Join us for our weekend heavy lift operation. We will be departing from our Asian hubs and crossing the airspace into European territories. Bring your freighters and let's fill the skies with Atlas callsigns!
+                </p>
+                
+                <!-- Button for IFC link or details -->
+                <a href="#" class="btn-primary glass-btn" style="max-width: 220px; margin-top: 0.5rem;">
+                    See event details <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="spacer-md"></div>
+
+        <!-- NEWS SECTION -->
+        <h2 class="section-title reveal-on-scroll" style="color: var(--color-white); margin-bottom: 1.5rem; text-align: left; padding-left: 0.5rem;">Latest News</h2>
+        
+        <div id="news-container" class="reveal-on-scroll">
+            <div class="news-card glass-panel">
+                
+                <div class="news-banner-wrapper">
+                    <!-- Changeable via Admin Panel -->
+                    <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779272477/IMG_20260520_154728_dsffd8.png" alt="News Banner" id="current-news-banner">
+                </div>
+                
+                <h3 class="news-title">Atlas Virtual Expansion Phase</h3>
+                
+                <p class="news-desc">
+                    As we continue to grow, Atlas Virtual is implementing new routes and expanding our codeshare partnerships to offer our pilots more variety. Keep an eye on the Crew Center for the latest schedule updates and route additions across the globe.
+                </p>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+                        <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="Training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

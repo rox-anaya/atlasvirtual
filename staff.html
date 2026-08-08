@@ -1,301 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Staff — Atlas Virtual</title>
-  <meta name="description" content="Meet the Atlas Virtual leadership team." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Staff | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <!-- LOGO — replace src URL to change header logo -->
-        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual Logo" />
-        <span class="nav-logo-text">Atlas Virtual</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn active">About Us <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="about.html">About Us</a>
-            <a href="staff.html" class="active">Staff</a>
-          </div>
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
         </div>
-        <div class="nav-dropdown">
-          <button class="nav-dd-btn">Operations <span class="dd-arrow">▾</span></button>
-          <div class="nav-dd-menu">
-            <a href="fleet.html">Fleet</a>
-            <a href="routes.html">Routes</a>
-            <a href="ranks.html">Ranks</a>
-          </div>
-        </div>
-        <a href="training.html">Training</a>
-        <a href="apply.html" class="nav-apply">Apply Now</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <div class="mob-dd open">
-      <button class="mob-dd-toggle">About Us <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="about.html">About Us</a>
-        <a href="staff.html">Staff</a>
-      </div>
-    </div>
-    <div class="mob-dd">
-      <button class="mob-dd-toggle">Operations <span class="mob-dd-arrow">▾</span></button>
-      <div class="mob-dd-menu">
-        <a href="fleet.html">Fleet</a>
-        <a href="routes.html">Routes</a>
-        <a href="ranks.html">Ranks</a>
-      </div>
-    </div>
-    <a href="training.html">Training</a>
-    <a href="apply.html" class="mob-apply">Apply Now</a>
-  </div>
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <h2 class="section-title reveal-on-scroll" style="color: var(--color-gold); margin-bottom: 2rem;">Leadership & Operations</h2>
 
-  <div class="page-wrapper">
+        <!-- STAFF GRID (Target ID for Admin Panel Injection) -->
+        <div class="staff-grid reveal-on-scroll" id="staff-roster">
+            
+            <!-- STAFF CARD 1: CEO -->
+            <div class="staff-card glass-panel">
+                <div class="staff-header">
+                    <!-- Placeholder for Profile Picture -->
+                    <div class="staff-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Ravikumar</h3>
+                        <h4 class="staff-role text-gold">CEO</h4>
+                        <span class="staff-id">001AV</span>
+                    </div>
+                </div>
+                <div class="staff-body">
+                    <p class="staff-desc">Founder and Chief Executive Officer. Oversees all VA operations, strategy and community growth.</p>
+                </div>
+                <div class="staff-footer">
+                    <a href="#" class="btn-dark-glass staff-ifc-btn">
+                        <i class="fa-brands fa-discourse"></i> IFC Profile
+                    </a>
+                </div>
+            </div>
 
-    <!-- ===== PAGE HERO ===== -->
-    <div class="page-hero">
-      <div class="page-hero-inner">
-        <p class="section-eyebrow">Leadership</p>
-        <h1 class="section-title">Our Staff</h1>
-        <div class="section-rule"></div>
-        <p class="section-desc">The team behind Atlas Virtual — building the most disciplined virtual airline in Infinite Flight.</p>
-      </div>
-    </div>
-
-    <!-- ===== STAFF CONTENT ===== -->
-    <section class="section">
-      <div class="section-inner">
-
-        <div style="text-align:center; margin-bottom: 48px;">
-          <!-- STAFF PAGE LOGO — replace URL to change the logo shown here -->
-          <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual" style="height:72px; width:auto; margin: 0 auto;" />
-        </div>
-
-        <!--
-        ╔══════════════════════════════════════════════════════╗
-        ║  HOW TO UPDATE STAFF                                 ║
-        ║                                                      ║
-        ║  Each staff card has these fields:                   ║
-        ║  • staff-role  → job title (CEO, COO, etc.)          ║
-        ║  • staff-name  → person's name                       ║
-        ║  • staff-desc  → short description                   ║
-        ║  • staff-link  → IFC profile URL (or remove it)      ║
-        ║                                                      ║
-        ║  To ADD a new member: copy any staff-card block      ║
-        ║  To mark OPEN: set name to "Position Open"           ║
-        ║    and swap the link for <span class="staff-recruiting">Recruiting</span>
-        ║                                                      ║
-        ║  On MOBILE cards stack in this order:                ║
-        ║  CEO → COO → CFO → HR                               ║
-        ║  (controlled by order: 1/2/3/4 CSS classes)         ║
-        ╚══════════════════════════════════════════════════════╝
-        -->
-
-        <!--
-          staff-grid-ordered = 2-col desktop, 1-col mobile (stacked by order)
-          Mobile order: CEO(1) → COO(2) → CFO(3) → HR(4)
-        -->
-        <div class="staff-grid staff-grid-ordered" style="max-width: 880px; margin: 0 auto;">
-
-          <!-- ── CEO ── -->
-          <!-- IFC LINK: replace href URL with CEO's IFC profile link -->
-          <div class="staff-card staff-card-ceo">
-            <div class="staff-role">CEO</div>
-            <div class="staff-name">Ravikumar</div>
-            <div class="staff-desc">Founder and Chief Executive Officer. Oversees all VA operations, strategy and community growth.</div>
-            <a href="https://community.infiniteflight.com/u/ravikumar" target="_blank" class="staff-link">→ View IFC Profile</a>
-          </div>
-
-          <!-- ── COO ── -->
-          <!-- IFC LINK: replace href URL with COO's IFC profile link -->
-          <div class="staff-card staff-card-coo">
-            <div class="staff-role">COO</div>
-            <div class="staff-name">Priyanshu Pandey</div>
-            <div class="staff-desc">Chief Operating Officer. Manages departmental operations and ensures VA procedures are upheld.</div>
-            <a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank" class="staff-link">→ View IFC Profile</a>
-          </div>
-
-          <!-- ── CFO ── -->
-          <!-- IFC LINK: replace # in href with CFO's IFC profile URL once assigned -->
-          <!-- NAME: replace "[CFO Name]" below with actual name when filled -->
-          <div class="staff-card staff-card-cfo">
-            <div class="staff-role">CFO</div>
-            <div class="staff-name">Position Open</div><!-- ← replace with actual name -->
-            <div class="staff-desc">Chief Flight Operations Officer. Oversees flight operations, pilot standards, and route management across Atlas Virtual. ✈</div>
-            <!-- CFO IFC LINK — replace # below with actual profile URL -->
-            <a href="#" target="_blank" class="staff-link">→ Recruiting</a>
-          </div>
-
-          <!-- ── HR ── -->
-          <!-- When HR is filled: replace [HR Name], update href with IFC profile URL -->
-          <div class="staff-card staff-card-hr">
-            <div class="staff-role">Human Resources</div>
-            <div class="staff-name">Position Open</div>
-            <div class="staff-desc">HR role responsible for pilot applications and onboarding.</div>
-            <!-- HR IFC LINK — replace # with IFC profile URL when filled. Change text from "Recruiting" to "View IFC Profile" -->
-            <a href="#" target="_blank" class="staff-link">→ Recruiting</a>
-          </div>
-
-          <!-- ── EXTRA STAFF SLOTS (1–10) — fill when new staff join ── -->
-          <!-- To fill: change staff-name, staff-role, staff-desc, update href in staff-link -->
-
-          <!-- Extra Slot 1 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 2 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 3 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 4 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 5 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 6 -->
-         <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 7 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 8 -->
-          <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 9 -->
-         <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
-          <!-- Extra Slot 10 -->
-         <div class="staff-card">
-            <div class="staff-role">Position Open</div>
-            <div class="staff-name">—</div>
-            <div class="staff-desc">This position is currently available.</div>
-            <a href="#" target="_blank" class="staff-link" style="color:var(--text-muted);">→ Recruiting</a>
-          </div>
+            <!-- STAFF CARD 2: COO -->
+            <div class="staff-card glass-panel">
+                <div class="staff-header">
+                    <div class="staff-avatar">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Priyanshu Pandey</h3>
+                        <h4 class="staff-role text-gold">COO</h4>
+                        <span class="staff-id">002AV</span>
+                    </div>
+                </div>
+                <div class="staff-body">
+                    <p class="staff-desc">Chief Operating Officer. Manages departmental operations and ensures VA procedures are upheld.</p>
+                </div>
+                <div class="staff-footer">
+                    <a href="#" class="btn-dark-glass staff-ifc-btn">
+                        <i class="fa-brands fa-discourse"></i> IFC Profile
+                    </a>
+                </div>
+            </div>
 
         </div>
+        
+    </main>
 
-      </div>
-    </section>
-    
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <!-- FOOTER LOGO — replace URL to change footer logo -->
-            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783595254/Picsart_26-07-09_16-35-34-773_mh72zq.png" alt="Atlas Virtual" />
-            <span class="footer-logo-text">Atlas Virtual</span>
-          </div>
-          <p class="footer-tagline">Global heavy cargo logistics and elite passenger charter operations in Infinite Flight. Discipline. Precision. Professionalism.</p>
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+                        <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
         </div>
-        <div>
-          <div class="footer-col-title">Navigate</div>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="staff.html">Staff</a></li>
-            <li><a href="fleet.html">Our Fleet</a></li>
-            <li><a href="routes.html">Routes</a></li>
-            <li><a href="training.html">Training</a></li>
-            <li><a href="ranks.html">Ranks</a></li>
-            <li><a href="apply.html">Apply Now</a></li>
-          </ul>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
         </div>
-        <div>
-          <div class="footer-col-title">Staff</div>
-          <ul class="footer-links">
-            <!-- IFC PROFILE LINKS — update href for each person -->
-            <li><a href="https://community.infiniteflight.com/u/ravikumar" target="_blank">CEO — ravikumar</a></li>
-            <li><a href="https://community.infiniteflight.com/u/priyanshu_pandey" target="_blank">COO — priyanshu_pandey</a></li>
-            <!-- CFO IFC LINK — replace # with actual IFC profile URL -->
-            <li><a href="#" target="_blank">CFO — Recruiting</a></li>
-            <li style="color:var(--text-muted);">HR — Recruiting</li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Community</div>
-          <ul class="footer-links">
-            <!-- IFC FORUM LINK — update if URL changes -->
-            <li><a href="https://community.infiniteflight.com" target="_blank">IFC Forum</a></li>
-            <!-- IFC THREAD LINK — replace # with actual thread URL when available -->
-            <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread/1200927" target="_blank">IFC Thread</a></li>
-            <li><a href="apply.html">Apply to Join</a></li>
-          </ul>
-          <br/>
-          <div class="footer-col-title">Social Media</div>
-          <ul class="footer-links">
-            <!-- SOCIAL LINKS — add your URLs in href="" below -->
-            <li><a href="https://www.instagram.com/atlas_virtual_airline?igsh=NDQyNnQ5dmxjanBs" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">X (Twitter)</a></li>
-            <li><a href="#" target="_blank">Facebook</a></li>
-            <li><a href="#" target="_blank">VK</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-inner" style="padding-top:0;border-top:none;">
-        <div class="footer-bottom" style="border-top:1px solid var(--navy-border);padding-top:20px;width:100%;grid-column:1/-1;">
-          <span class="footer-copy">© 2026 Atlas Virtual — Built for the Infinite Flight Community</span>
-          <span class="footer-disclaimer">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</span>
-        </div>
-      </div>
-      <!-- PROUDLY LINE — edit text if needed -->
-      <div class="footer-pride">Proudly Indian &amp; Kannadiga 🇮🇳</div>
     </footer>
 
-  </div>
-  <script src="nav.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

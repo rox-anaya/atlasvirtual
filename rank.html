@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Pilot Ranks | Atlas Virtual</title>
+    
+    <!-- Anti-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=2.5">
+    <style>
+        /* Clean Alignment & Accordion Layout */
+        .rank-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .rank-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 1rem;
+        }
+        .rank-info-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+            min-width: 0;
+        }
+        .rank-text-block {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .rank-meta-group {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-shrink: 0;
+        }
+        .rank-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            padding: 0;
+        }
+        .rank-card.active .rank-details {
+            max-height: 150px;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(20, 33, 61, 0.1);
+            margin-top: 0.75rem;
+        }
+        
+        /* Rank Epaulette Image Formatting */
+        .rank-card img {
+            width: 60px;
+            height: 30px;
+            object-fit: contain !important;
+            background: rgba(20, 33, 61, 0.05);
+            padding: 2px;
+            border-radius: 4px;
+            border: 1px solid rgba(20, 33, 61, 0.15);
+            flex-shrink: 0;
+        }
+
+        /* Mobile-Friendly Category Header Spacing */
+        .rank-category-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.2rem;
+            margin: 2.5rem 0 1rem 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .rank-category-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TUBE SHAPE HEADER -->
+    <header class="tube-header">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="header-logo">
+        </div>
+        <button class="hamburg-menu" aria-label="Open Menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="margin-top: 120px;">
+        
+        <!-- PAGE INTRO -->
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 2.5rem;">
+            <h3 class="sub-heading" style="color: var(--color-gold);">Progression</h3>
+            <h2 class="section-title" style="color: var(--color-gold); font-size: 2.2rem; margin-bottom: 0.5rem;">Rank Structure</h2>
+            <p style="color: #4A5568; font-size: 1.05rem; max-width: 800px; margin: 0 auto;">
+                Progress through our ranks by completing flight hours and demonstrating professionalism. Each rank is represented by a unique epaulette.
+            </p>
+        </div>
+
+        <!-- CADET RANK BANNER -->
+        <div class="glass-panel reveal-on-scroll rank-card" onclick="toggleRank(this)" style="margin-bottom: 2rem; border-left: 4px solid var(--color-gold);">
+            <div class="rank-main-row">
+                <div class="rank-info-group">
+                    <div style="font-size: 2rem; color: var(--color-gold); flex-shrink: 0;"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="rank-text-block">
+                        <h3 class="aircraft-name" style="margin: 0; font-size: 1.1rem;">Cadet — Trainee Rank</h3>
+                        <p style="margin: 0; font-size: 0.8rem; color: #4A5568; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Awarded Upon Acceptance into Atlas Virtual</p>
+                    </div>
+                </div>
+                <div class="rank-meta-group">
+                    <span style="font-weight: 800; color: var(--color-gold);">0 hrs</span>
+                    <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1.1rem;"></i>
+                </div>
+            </div>
+            <div class="rank-details">
+                <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">
+                    Every Atlas Virtual journey begins here. When your application is accepted, you receive the Cadet rank. Complete Stage 1 (theory exam) and Stage 2 (check-ride) training to earn your first operational rank and officially take to the skies as an Atlas Virtual pilot.
+                </p>
+            </div>
+        </div>
+
+        <!-- PASSENGER RANKS -->
+        <div class="rank-category-header reveal-on-scroll">
+            <h2 class="section-title" style="margin: 0; font-size: 1.4rem;">Passenger Ranks</h2>
+            <span style="font-size: 0.75rem; font-weight: 700; color: #B5651D; text-transform: uppercase; letter-spacing: 1px;">Charter Operations</span>
+        </div>
+        
+        <div class="reveal-on-scroll" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
+            
+            <!-- Junior First Officer -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177648/Picsart_26-05-19_12-56-02-302_e7fej6.jpg" alt="Junior First Officer">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Junior First Officer</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Entry level — charter passenger operations</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">0 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Junior First Officer epaulette representing entry-level passenger charter flight operations within the VA network.</p>
+                </div>
+            </div>
+
+            <!-- First Officer -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177648/Picsart_26-05-19_12-56-39-569_fiozeh.jpg" alt="First Officer">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">First Officer</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Charter passenger pilot</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">25 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Achieved upon completing 25 flight hours in passenger charter operations.</p>
+                </div>
+            </div>
+
+            <!-- Senior First Officer -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177649/Picsart_26-05-19_12-57-35-704_lktbqy.jpg" alt="Senior First Officer">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Senior First Officer</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Senior charter pilot</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">50 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Awarded at 50 flight hours for dedicated charter pilot performance.</p>
+                </div>
+            </div>
+
+            <!-- Captain -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177650/Picsart_26-05-19_12-58-09-882_rhsmwz.jpg" alt="Captain">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Captain</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Veteran charter pilot</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">100 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Reached at 100 flight hours, marking veteran status in passenger operations.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CARGO RANKS -->
+        <div class="rank-category-header reveal-on-scroll">
+            <h2 class="section-title" style="margin: 0; font-size: 1.4rem;">Cargo Ranks</h2>
+            <span style="font-size: 0.75rem; font-weight: 700; color: #B5651D; text-transform: uppercase; letter-spacing: 1px;">Freight Operations</span>
+        </div>
+        
+        <div class="reveal-on-scroll" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
+            
+            <!-- Senior Captain -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177649/Picsart_26-05-19_13-25-17-343_kzzdyb.jpg" alt="Senior Captain">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Senior Captain</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Entry level cargo operations</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">200 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Transition to heavy freight operations at 200 flight hours.</p>
+                </div>
+            </div>
+
+            <!-- Chief Captain -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177649/Picsart_26-05-19_13-27-13-900_bw7rpe.jpg" alt="Chief Captain">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Chief Captain</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Senior freighter pilot</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">300 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Senior freighter pilot status attained at 300 flight hours.</p>
+                </div>
+            </div>
+
+            <!-- Commander -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177650/Picsart_26-05-19_13-27-46-931_azxrnw.jpg" alt="Commander">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Commander</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Master freighter pilot</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">500 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Master freighter pilot status reached at 500 flight hours.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ELITE RANKS -->
+        <div class="rank-category-header reveal-on-scroll">
+            <h2 class="section-title" style="margin: 0; font-size: 1.4rem;">Elite Ranks</h2>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-gold); text-transform: uppercase; letter-spacing: 1px;">Top Performers Only</span>
+        </div>
+        
+        <div class="reveal-on-scroll" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem;">
+            
+            <!-- Apex Commander -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177651/Picsart_26-05-19_13-28-19-189_hheuqp.jpg" alt="Apex Commander">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Apex Commander</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Elite Tier I</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">1000 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Elite Tier I status achieved at 1,000 flight hours with leadership review.</p>
+                </div>
+            </div>
+
+            <!-- Titan -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177650/Picsart_26-05-19_13-28-47-977_salj4u.jpg" alt="Titan">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Titan</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Elite Tier II</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">1500 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">Elite Tier II status achieved at 1,500 flight hours.</p>
+                </div>
+            </div>
+
+            <!-- Sovereign -->
+            <div class="glass-panel rank-card" onclick="toggleRank(this)">
+                <div class="rank-main-row">
+                    <div class="rank-info-group">
+                        <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1779177652/Picsart_26-05-19_13-29-14-122_hbaevq.jpg" alt="Sovereign">
+                        <div class="rank-text-block">
+                            <h3 class="aircraft-name" style="margin: 0; font-size: 1rem;">Sovereign</h3>
+                            <p style="margin: 0; font-size: 0.78rem; color: #4A5568;">Elite Tier III — Highest Rank</p>
+                        </div>
+                    </div>
+                    <div class="rank-meta-group">
+                        <span style="font-weight: 800; color: var(--color-gold);">2000 hrs</span>
+                        <i class="fa-solid fa-plus rank-icon-toggle" style="color: #14213D; font-size: 1rem;"></i>
+                    </div>
+                </div>
+                <div class="rank-details">
+                    <p style="color: #4A5568; font-size: 0.9rem; margin: 0;">The highest rank in Atlas Virtual, achieved at 2,000 flight hours and elite leadership endorsement.</p>
+                </div>
+            </div>
+
+        </div>
+
+  <!-- INFO NOTICE -->
+        <div class="glass-panel reveal-on-scroll" style="margin-bottom: 2rem; border-left: 4px solid var(--color-gold);">
+            <h3 style="color: var(--color-gold); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-info"></i> Important Notice</h3>
+            <p style="color: #4A5568; font-size: 0.95rem; margin: 0;">
+                Flight hour requirements are tracked by our operations team. Elite ranks may also carry additional criteria set by leadership. Full details are provided in the Pilot Handbook upon joining.
+            </p>
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dsfwafyc2/image/upload/v1783704335/Picsart_26-07-09_09-13-49-532_cerqdw.png" alt="Atlas Virtual Logo" class="footer-logo">
+            </div>
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="routes.html">Routes</a></li>
+                    <li><a href="rank.html">Ranks</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                </ul>
+            </div>
+            <div class="footer-community">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://community.infiniteflight.com/" target="_blank"><i class="fa-brands fa-discourse"></i> IFC Forum</a></li>
+                    <li><a href="https://community.infiniteflight.com/t/atlas-virtual-home-of-the-giants-official-thread"><i class="fa-solid fa-comments"></i> IFC Thread</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright-text">© 2026 Atlas Virtual — Built for the Infinite Flight Community</p>
+            <p class="disclaimer copyright-text">Atlas Air Virtual is in no way related to the real-world Atlas Air. All trademarks and logos remain the property of their respective owners.</p>
+            
+            <hr class="pride-divider">
+            <p class="kannadiga-pride">Proudly Indian & Kannadiga <i class="fa-solid fa-flag text-gold"></i></p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ACCORDION SCRIPT (+ TO - TOGGLE) -->
+    <script>
+        function toggleRank(card) {
+            const isOpen = card.classList.contains('active');
+            const icon = card.querySelector('.rank-icon-toggle');
+            
+            if (!isOpen) {
+                card.classList.add('active');
+                if(icon) { 
+                    icon.classList.remove('fa-plus'); 
+                    icon.classList.add('fa-minus'); 
+                }
+            } else {
+                card.classList.remove('active');
+                if(icon) { 
+                    icon.classList.remove('fa-minus'); 
+                    icon.classList.add('fa-plus'); 
+                }
+            }
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
