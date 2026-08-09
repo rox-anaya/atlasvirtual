@@ -1,4 +1,4 @@
-const CACHE_NAME = 'atlas-virtual-v1';
+const CACHE_NAME = 'atlas-virtual-v2';
 const urlsToCache = [
   '/',
   '/index.html',
