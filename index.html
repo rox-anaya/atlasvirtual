@@ -158,6 +158,179 @@
 
         <div class="spacer-md"></div>
 
+<!-- ========================================== -->
+<!-- LIVE OPERATIONS ACCORDION SECTION STARTS   -->
+<!-- ========================================== -->
+<style>
+  .live-ops-section * {
+    box-sizing: border-box;
+  }
+
+  .live-ops-section {
+    width: 100%;
+    max-width: 1200px;
+    /* Negative top margin pulls it right up against the previous block */
+    margin: -5px auto 10px auto; 
+    padding: 0 4px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Compact Light Sky-Blue Frosted Glass Button */
+  .live-ops-toggle {
+    background: rgba(135, 206, 235, 0.2); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(135, 206, 235, 0.4); 
+    border-top: 1px solid rgba(255, 255, 255, 0.6); 
+    border-radius: 50px; 
+    padding: 10px 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px; 
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.25), 
+      inset 0 2px 4px rgba(255, 255, 255, 0.3); 
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  .live-ops-toggle:hover, .live-ops-toggle.active {
+    background: rgba(135, 206, 235, 0.35);
+    border: 1px solid rgba(252, 163, 17, 0.7);
+    box-shadow: 
+      0 8px 22px rgba(252, 163, 17, 0.25), 
+      inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .live-ops-title {
+    font-size: 15px; 
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+  }
+
+  /* LIVE text in clean white */
+  .live-text { color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
+  
+  /* OPERATIONS text changed to Dark Oxford Blue for high readability */
+  .operations-text { color: #14213D; text-shadow: 0 1px 1px rgba(255,255,255,0.5); }
+
+  /* Pulsing Dot */
+  .pulse-dot-small {
+    width: 8px;
+    height: 8px;
+    background-color: #ff3333;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ff3333;
+    animation: pulseSmall 1.5s infinite;
+  }
+
+  @keyframes pulseSmall {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 51, 51, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0); }
+  }
+
+  .chevron-icon {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: #14213D;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.4s ease;
+  }
+
+  .live-ops-toggle.active .chevron-icon {
+    transform: rotate(180deg);
+    stroke: #FCA311; 
+  }
+
+  .live-ops-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-10px); 
+  }
+
+  .live-ops-content.active {
+    max-height: 900px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 10px; 
+  }
+
+  /* Shiny Gold Border Wrapper */
+  .map-wrapper {
+    background: #0d1527; 
+    border: 2px solid #FCA311; 
+    border-radius: 16px;
+    padding: 2px; 
+    box-shadow: 
+      0 0 15px rgba(252, 163, 17, 0.3), 
+      inset 0 3px 6px rgba(255, 255, 255, 0.2), 
+      inset 0 -2px 5px rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    overflow: hidden;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+  }
+  
+  @media (max-width: 768px) {
+     .map-wrapper { aspect-ratio: 16 / 10; } 
+  }
+</style>
+
+<div class="live-ops-section">
+  <div class="live-ops-toggle" onclick="toggleLiveOps()">
+    <div class="pulse-dot-small"></div>
+    <h2 class="live-ops-title">
+      <span class="live-text">LIVE</span>
+      <span class="operations-text">OPERATIONS</span>
+    </h2>
+    <svg class="chevron-icon" viewBox="0 0 24 24">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+  
+  <div class="live-ops-content" id="liveOpsContent">
+    <div class="map-wrapper">
+      <iframe src="https://waypoint-live.app/embed/va/atlas-virtual?hub=PANC&as=1.25" style="border:0;" loading="lazy" title="Live flights"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleLiveOps() {
+    const toggleBtn = document.querySelector('.live-ops-toggle');
+    const content = document.getElementById('liveOpsContent');
+    toggleBtn.classList.toggle('active');
+    content.classList.toggle('active');
+  }
+</script>
+<!-- ========================================== -->
+<!-- LIVE OPERATIONS ACCORDION SECTION ENDS     -->
+<!-- ========================================== -->
+
         <!-- OUR MISSION -->
         <section class="mission-box glass-panel reveal-on-scroll">
             <h2>Our Mission</h2>
